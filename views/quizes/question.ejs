@@ -1,0 +1,5 @@
+<form method="get" action="/quizes/answer">                         <!- cuando submit, llama a export.answer del quiz_controller.js ->
+	<p>Pregunta: <%= pregunta %> </p>
+	<input type="text" name="respuesta" value="Responda aquí"/>		<!- se genera la variable respuesta para enviar en GET req ->
+	<input type="submit" value="Enviar">
+</form>
