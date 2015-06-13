@@ -11,8 +11,8 @@ router.get('/quizes/question', quizController.question);				// controla las peti
 router.get('/quizes/answer', quizController.answer);					// controla las peticiones GET a /quizes/answer segun el enrutador quiz_controller.js
 																		// question y answer son las variables analizdas en quiz_controller.js
 
-router.get('/author/author', function(req, res) {
-	res.render('author/author', { title: 'Autor' });					// visualiza el autor
+router.get('/profile/author', function(req, res) {
+	res.render('profile/author', { title: 'Autor' });					// visualiza el autor
 });
 
 module.exports = router;
