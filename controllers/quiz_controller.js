@@ -33,7 +33,7 @@ exports.index = function(req, res) {									// GET /quizes
 
 exports.show = function(req, res) {										// GET /quizes/:id
 //	models.Quiz.find(req.params.quizId).then(function(quiz) {			// find() seleciona en la tabla Quiz req.params.quizId y lo pasa como argumento quiz a la funcion
-		res.render('quizes/show', {quiz: quiz});						// renderiza la vista /quizes/show del quizId selecionado con find()
+		res.render('quizes/show', {quiz: req.quiz});						// renderiza la vista /quizes/show del quizId selecionado con find()
 };									          						// req.quiz: instancia de quiz cargada con autoload
 
 	
