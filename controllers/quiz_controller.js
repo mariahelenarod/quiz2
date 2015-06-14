@@ -42,6 +42,6 @@ exports.answer = function(req, res) {									// GET /quizes/answer/:id
 	if (req.query.respuesta === req.quiz.respuesta) {					// comprueba la variable respuesta de la peticion GET req recibida del form question.ejs vs req.quiz.respuesta, que es la respuesta que devuelve find() del autoload
 		resultado = 'Correcto';											// renderiza /views/answer.ejs con el objeto quiz y respuesta
 	};
-	res.render('quizes/answer', {quiz: req.quiz, respuesta: resultado};
+	res.render('quizes/answer', {quiz: req.quiz, respuesta: resultado});
 };
 
