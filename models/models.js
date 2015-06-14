@@ -35,8 +35,8 @@ sequelize.sync().then(function() {									// sequelize.sync() inicializa tabla 
 	Quiz.count().then(function(count) {							// success ejecuta el manejador cuando crea la tabla. Quiz.count().success() devuelve el numero de filas
 		if (count === 0) {											// se inicializa solo si esta vacia
 			Quiz.create({
-				pregunta: DataTypes.STRING,
-		  		respuesta: DataTypes.STRING
+				pregunta: 'Capital de Italia',
+		  		respuesta: 'Roma'
 			}).then(function() {console.log('Base creada')});
 		};
 	});
