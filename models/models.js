@@ -32,7 +32,7 @@ var Quiz = sequelize.import(path.join(__dirname, 'quiz'));			// importar estruct
 exports.Quiz = Quiz;												// exportar tablas
 
 sequelize.sync().then(function() {									// sequelize.sync() inicializa tabla de preguntas en DB
-	Quiz.count().then(function(count) {							// success ejecuta el manejador cuando crea la tabla. Quiz.count().success() devuelve el numero de filas
+	Quiz.count().then(function(count) {								// success ejecuta el manejador cuando crea la tabla. Quiz.count().success() devuelve el numero de filas
 		if (count === 0) {											// se inicializa solo si esta vacia
 			Quiz.create({
 				pregunta: 'Capital de Italia',
