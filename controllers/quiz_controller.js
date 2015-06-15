@@ -23,12 +23,21 @@ exports.load = function(req, res, next, quizId) {
 	})
 }; */
 
-exports.index = function(req, res) {									// GET /quizes					
-	models.Quiz.findAll().then(
-		function(quizes) {
-			res.render('quizes/index.ejs', {quizes: quizes});			// findAll() renderiza toda la lista de preguntas que se genera en /quizes/index.ejs
-		}
-	).catch(function(error) {next(error);})
+exports.index = function(req, res) {					// GET /quizes	
+	var search = '%' + (req.query.search || '').replace(/ /g,'%') + '%';    // con req de la peticion GET monta la ruta + el valor introducido de req.query.search
+	if (req.query.search) {
+		models.Quiz.findAll({where: ["pregunta like ?", search]}).then(
+			function(quizes) {
+				res.render('quizes/index.ejs', {quizes: quizes});			// findAll() renderiza toda la lista de preguntas que se genera en /quizes/index.ejs
+			}
+		)
+	} else {
+		models.Quiz.findAll().then(
+			function(quizes) {
+				res.render('quizes/index.ejs', {quizes: quizes});			// findAll() renderiza toda la lista de preguntas que se genera en /quizes/index.ejs
+			}
+		).catch(function(error) {next(error);});
+	};
 };
 
 exports.show = function(req, res) {										// GET /quizes/:id
