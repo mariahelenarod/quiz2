@@ -23,18 +23,27 @@ exports.load = function(req, res, next, quizId) {
 	})
 }; */
 
-exports.index = function(req, res) {									// GET /quizes					
-	models.Quiz.findAll().then(
-		function(quizes) {
-			res.render('quizes/index.ejs', {quizes: quizes});			// findAll() renderiza toda la lista de preguntas que se genera en /quizes/index.ejs
-		}
-	).catch(function(error) {next(error);})
+exports.index = function(req, res) {					// GET /quizes	
+	var search = '%' + (req.query.search || '').replace(/ /g,'%') + '%';    // con req de la peticion GET monta la ruta + el valor introducido de req.query.search
+	if (req.query.search) {
+		models.Quiz.findAll({where: ["pregunta like ?", search], order:'pregunta'}).then(
+			function(quizes) {
+				res.render('quizes/index.ejs', {quizes: quizes});			// findAll() renderiza toda la lista de preguntas que se genera en /quizes/index.ejs
+			}
+		)
+	} else {
+		models.Quiz.findAll().then(
+			function(quizes) {
+				res.render('quizes/index.ejs', {quizes: quizes});			// findAll() renderiza toda la lista de preguntas que se genera en /quizes/index.ejs
+			}
+		).catch(function(error) {next(error);});
+	};
 };
 
 exports.show = function(req, res) {										// GET /quizes/:id
 //	models.Quiz.find(req.params.quizId).then(function(quiz) {			// find() seleciona en la tabla Quiz req.params.quizId y lo pasa como argumento quiz a la funcion
-		res.render('quizes/show', {quiz: req.quiz});						// renderiza la vista /quizes/show del quizId selecionado con find()
-};									          						// req.quiz: instancia de quiz cargada con autoload
+		res.render('quizes/show', {quiz: req.quiz});					// renderiza la vista /quizes/show del quizId selecionado con load find()
+};									          							// req.quiz: instancia de quiz cargada con autoload
 
 	
 exports.answer = function(req, res) {									// GET /quizes/answer/:id
