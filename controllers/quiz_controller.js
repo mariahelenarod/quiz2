@@ -49,3 +49,11 @@ exports.new = function(req, res) {										// GET /quizes/new
   	);
 	res.render('quizes/new', {quiz: quiz, errors: []});					// renderiza la vista quizes/new
 };
+
+exports.create = function(req, res) {									// POST /quizes/create
+	req.body.quiz.UserId = req.session.user.id;
+	var quiz = models.Quiz.build( req.body.quiz );
+	quiz.save({fields: ["pregunta", "respuesta"]}).then(				// save: guarda en DB campos pregunta y respuesta de quiz
+        function() {res.redirect('/quizes')};
+    );
+};
