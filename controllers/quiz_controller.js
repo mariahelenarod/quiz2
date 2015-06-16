@@ -44,16 +44,15 @@ exports.answer = function(req, res) {									// GET /quizes/answer/:id
 };
 
 exports.new = function(req, res) {										// GET /quizes/new
-	var quiz = models.Quiz.build( 										// crea el objeto quiz, lo construye con buid() que es un metodo de sequilize
+	var quiz = models.Quiz.build( 										// crea el objeto quiz, lo construye con buid() metodo de sequilize
     	{pregunta: "Pregunta", respuesta: "Respuesta"}					// asigna literales a los campos pregunta y respuestas para que se vea el texto en el <input> cuando creemos el formulario
   	);
-	res.render('quizes/new', {quiz: quiz, errors: []});					// renderiza la vista quizes/new
+	res.render('quizes/new', {quiz: quiz});								// renderiza la vista quizes/new
 };
 
-exports.create = function(req, res) {									// POST /quizes/create
-	req.body.quiz.UserId = req.session.user.id;
+exports.create = function(req, res) {									// POST /quizes/create. cuando submit del formulario new.ejs
 	var quiz = models.Quiz.build( req.body.quiz );
 	quiz.save({fields: ["pregunta", "respuesta"]}).then(				// save: guarda en DB campos pregunta y respuesta de quiz
-        function() {res.redirect('/quizes')};
-    );
+        function() {res.redirect('/quizes')}
+    )
 };
