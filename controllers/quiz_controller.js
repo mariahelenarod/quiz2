@@ -55,7 +55,7 @@
 		res.render('quizes/new', {quiz: quiz, errors: []});					// renderiza la vista quizes/new
 	};
 
-	exports.create = function(req, res) {									// POST /quizes/create. cuando submit del formulario new.ejs
+/*	exports.create = function(req, res) {									// POST /quizes/create. cuando submit del formulario new.ejs
 		var quiz = models.Quiz.build( req.body.quiz );
 		quiz.validate().then(												// validacion del campo
 			function(err) {
@@ -68,10 +68,10 @@
 				}
 			}
 		);
-	};
+	}; */
 	
 		// POST /quizes/create ----->>>> alternativo         
-/*	exports.create = function(req, res) {
+	exports.create = function(req, res) {
 		var quiz = models.Quiz.build( req.body.quiz );
 		var errors = quiz.validate();											// ya qe el objeto errors no tiene then(
 		if (errors) {
@@ -84,7 +84,7 @@
 			.save({fields: ["pregunta", "respuesta"]})
 			.then( function(){ res.redirect('/quizes')}) ;
 		}
-	}; */
+	};
 	
 	
 	
