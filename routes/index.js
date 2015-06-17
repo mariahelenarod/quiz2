@@ -19,7 +19,7 @@
 	router.post('/quizes/create',					quizController.create);			// carga el formulario /quizes/create cuando el boton <salvar> del formulario new
 
 	router.get('/profile/author', function(req, res) {
-		res.render('profile/author', { title: 'Autor' });					// visualiza el autor
+		res.render('profile/author', {title: 'Autor', errors: []});					// visualiza el autor
 	});
 
 	module.exports = router;

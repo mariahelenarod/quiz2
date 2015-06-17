@@ -19,7 +19,7 @@
 		if (req.query.search) {
 			models.Quiz.findAll({where: ["pregunta like ?", search], order:'pregunta ASC'}).then(    		// findAll() selecciona con sql
 				function(quizes) {
-					res.render('quizes/index.ejs', {quizes: quizes, order:'pregunta ASC', errors: []});			
+					res.render('quizes/index.ejs', {quizes: quizes, errors: []});			
 				}
 			)
 		} else {
