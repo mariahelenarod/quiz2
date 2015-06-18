@@ -94,7 +94,7 @@
 	exports.update = function(req, res) {										// modifica un quiz
 		req.quiz.pregunta = req.body.quiz.pregunta;
 		req.quiz.respuesta = req.body.quiz.respuesta;
-/*		var errors = req.quiz.validate();											
+		var errors = req.quiz.validate();											
 		if (errors) {
 			var i = 0; 
 			var errores = new Array();												// se convierte en [] con la propiedad message por compatibilidad con layout
@@ -104,7 +104,7 @@
 			req.quiz 																// save: guarda en DB campos pregunta y respuesta de quiz
 			.save({fields: ["pregunta", "respuesta"]})
 			.then(function() {res.redirect('/quizes')});
-//		}
+		}
 	};
 	
 	
