@@ -25,7 +25,7 @@
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded());
 	app.use(cookieParser());
-	app.use(methodOverride('_method');							// para utilizar en edit.ejs y encapsular el post como put
+	app.use(methodOverride('_method'));							// para utilizar en edit.ejs y encapsular el post como put
 	app.use(express.static(path.join(__dirname, 'public')));
 
 	app.use('/', routes);
