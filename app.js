@@ -6,7 +6,7 @@
 	var cookieParser = require('cookie-parser');
 	var bodyParser = require('body-parser');
 	var partials = require('express-partials');             // paquete para manejar vistas parciales del layout.ejs
-	var methodOverride = ('method-override');
+	var methodOverride = require('method-override');
 
 	var routes = require('./routes/index');
 	// var users = require('./routes/users');
