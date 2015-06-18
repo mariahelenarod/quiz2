@@ -16,7 +16,11 @@
 	router.get('/quizes/:quizId(\\d+)/answer',		quizController.answer);			// se dispara cuando submit del form question.ejs hacia la ruta /quizes/answer. le pasa el id en la peticion GET req
 
 	router.get('/quizes/new',						quizController.new);			// carga el formulario /quizes/new
-	router.post('/quizes/create',					quizController.create);			// carga el formulario /quizes/create cuando el boton <salvar> del formulario new
+	router.post('/quizes/create',					quizController.create);			// dispara controlador create cuando el boton <salvar> del formulario new.js
+
+	router.get('quizes/:quizesId(\\d+)/edit'),		quizController.edit;			// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller
+	router.put('quizes/:quizesId(\\d+'),			quizController.update;			// dispara controlador update cuando el boton <salvar> del formulario edit.js
+	
 
 	router.get('/profile/author', function(req, res) {
 		res.render('profile/author', {title: 'Autor', errors: []});					// visualiza el autor

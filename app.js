@@ -6,6 +6,7 @@
 	var cookieParser = require('cookie-parser');
 	var bodyParser = require('body-parser');
 	var partials = require('express-partials');             // paquete para manejar vistas parciales del layout.ejs
+	var methodOverride = ('method-override');
 
 	var routes = require('./routes/index');
 	// var users = require('./routes/users');
@@ -16,7 +17,7 @@
 	app.set('views', path.join(__dirname, 'views'));
 	app.set('view engine', 'ejs');
 
-	app.use(partials());                                    // instala el middleware que da soporte a vistas parciales
+	app.use(partials());                                    	// instala el middleware que da soporte a vistas parciales
 
 	// uncomment after placing your favicon in /public
 	app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -24,6 +25,7 @@
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded());
 	app.use(cookieParser());
+	app.use(methodOverride('_method');							// para utilizar en edit.ejs y encapsular el post como put
 	app.use(express.static(path.join(__dirname, 'public')));
 
 	app.use('/', routes);
