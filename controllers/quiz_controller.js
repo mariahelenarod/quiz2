@@ -88,7 +88,7 @@
 	
 	exports.edit = function(req, res) {											// carga formulario edit.ejs
 		var quiz = req.quiz;													// req.quiz viene del autoload
-		res.render('quizes/edit', {quiz.: quiz, errors: []});
+		res.render('quizes/edit', {quiz: quiz, errors: []});
 	};
 	
 	exports.update = function(req, res) {										// modifica un quiz
