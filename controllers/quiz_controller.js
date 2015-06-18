@@ -100,7 +100,7 @@
 			var errores = new Array();												// se convierte en [] con la propiedad message por compatibilidad con layout
 			for (var prop in errors) errores[i++] = {message: errors[prop]};        
 			res.render('quizes/edit', {quiz: req.quiz, errors: errores});
-		} else { */
+		} else {
 			req.quiz 																// save: guarda en DB campos pregunta y respuesta de quiz
 			.save({fields: ["pregunta", "respuesta"]})
 			.then(function() {res.redirect('/quizes')});
