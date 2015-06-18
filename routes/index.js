@@ -18,8 +18,8 @@
 	router.get('/quizes/new',						quizController.new);			// carga el formulario /quizes/new
 	router.post('/quizes/create',					quizController.create);			// dispara controlador create cuando el boton <salvar> del formulario new.js
 
-	router.get('quizes/:quizesId(\\d+)/edit'),		quizController.edit;			// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller
-	router.put('quizes/:quizesId(\\d+'),			quizController.update;			// dispara controlador update cuando el boton <salvar> del formulario edit.js
+	router.get('quizes/:quizesId(\\d+)/edit',		quizController.edit);			// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller
+	router.put('quizes/:quizesId(\\d+)',			quizController.update);			// dispara controlador update cuando el boton <salvar> del formulario edit.js
 	
 
 	router.get('/profile/author', function(req, res) {
