@@ -50,7 +50,7 @@
 
 	exports.new = function(req, res) {										// GET /quizes/new, baja el formulario
 		var quiz = models.Quiz.build( 										// crea el objeto quiz, lo construye con buid() metodo de sequilize
-			{pregunta: "Pregunta", respuesta: "Respuesta", tema: "Tema"}					// asigna literales a los campos pregunta y respuestas para que se vea el texto en el <input> cuando creemos el formulario
+			{pregunta: "Pregunta", respuesta: "Respuesta"}					// asigna literales a los campos pregunta y respuestas para que se vea el texto en el <input> cuando creemos el formulario
 		);
 		res.render('quizes/new', {quiz: quiz, errors: []});					// renderiza la vista quizes/new
 	};
