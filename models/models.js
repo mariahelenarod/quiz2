@@ -36,13 +36,22 @@
 			if (count === 0) {											// se inicializa solo si esta vacia
 				Quiz.create({
 					pregunta: 'Capital de Italia',
-					respuesta: 'Roma'
+					respuesta: 'Roma',
+					tema: 'Geografía'
 				});
 				Quiz.create({
 					pregunta: 'Capital de Portugal',
-					respuesta: 'Lisboa'
+					respuesta: 'Lisboa',
+					tema: 'Geografía'
 				})
 				.then(function() {console.log('Base creada')});
 			};
 		});
 	});
+	
+	
+	
+	
+	
+	
+	
