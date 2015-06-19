@@ -20,6 +20,7 @@
 
 	router.get('/quizes/:quizId(\\d+)/edit',		quizController.edit);			// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller
 	router.put('/quizes/:quizId(\\d+)',				quizController.update);			// dispara controlador update cuando el boton <salvar> del formulario edit.js
+	router.delete('/quizes/:quizId(\\d+)',			quizController.destroy);
 	
 
 	router.get('/profile/author', function(req, res) {
