@@ -94,7 +94,7 @@
 	exports.update = function(req, res) {										// modifica un quiz
 		req.quiz.pregunta = req.body.quiz.pregunta;
 		req.quiz.respuesta = req.body.quiz.respuesta;
-		req.quiz.respuesta = req.body.quiz.tema;
+		req.quiz.tema = req.body.quiz.tema;
 		var errors = req.quiz.validate();											
 		if (errors) {
 			var i = 0; 
