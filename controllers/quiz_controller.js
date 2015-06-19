@@ -1,8 +1,8 @@
 
 	var models = require('../models/models.js');
 
-	exports.load = function(req, res, next, quizId) {		// autoload. solo se ejecuta si en la peticion GET existe un :quizId. ayuda a factorizar el codigo del resto de controladores 
-		models.Quiz.find(quizId).then(						//si find() tiene exito
+	exports.load = function(req, res, next, quizId) {			// autoload. solo se ejecuta si en la peticion GET existe un :quizId. ayuda a factorizar el codigo del resto de controladores 
+		models.Quiz.find(quizId).then(							//si find() tiene exito
 			function(quiz) {
 				if (quiz) {
 					req.quiz = quiz;
