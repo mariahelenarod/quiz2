@@ -31,7 +31,7 @@
 	var Comment = sequelize.import(path.join(__dirname, 'comment'));	// importar estructura y definicion de la tabla Coment
 	
 	Comment.belongsTo(Quiz);											// integridad referncial. Cada Comment es hijo de Quiz
-	Quiz.hasMany(Comment);											// el padre puede tener varios hijos
+	Quiz.hasMany(Comment);												// el padre puede tener varios hijos
 
 	exports.Quiz = Quiz;												// exportar tablas
 	exports.Comment = Comment;

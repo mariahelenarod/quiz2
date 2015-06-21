@@ -13,9 +13,9 @@
 		var comment = models.Comment.build({												// construccion objeto comment para lugego introducir en la tabla
 			texto: req.body.comment.texto,													// texto que llega del formulario
 			QuizId: req.params.quizId														// al comment se le pasa el quizId del quiz para establecer la integridad referencial entre Quiz y Comment. indice secundario de Comment
-		});
+		}).validate();
 		
-		comment.validate();											
+		//comment.validate();											
 		if (errors) {
 			var i = 0; 
 			var errores = new Array();												// se convierte en [] con la propiedad message por compatibilidad con layout
