@@ -14,8 +14,7 @@
 			texto: req.body.comment.texto,													// texto que llega del formulario
 			QuizId: req.params.quizId														// al comment se le pasa el quizId del quiz para establecer la integridad referencial entre Quiz y Comment. indice secundario de Comment
 		});
-		
-		//comment.validate();											
+		var errors = comment.validate();
 		if (errors) {
 			var i = 0; 
 			var errores = new Array();												// se convierte en [] con la propiedad message por compatibilidad con layout
@@ -24,6 +23,6 @@
 		} else {
 			comment 																// save: guarda en DB campos pregunta y respuesta de quiz
 			.save()
-			.then(function() {res.redirect('/quizes/' + req.params.quizId)});		
+			.then(function() {res.redirect('/quizes/' + req.params.quizId)})		
 		};
 	};
