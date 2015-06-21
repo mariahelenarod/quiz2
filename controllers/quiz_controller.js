@@ -2,8 +2,10 @@
 	var models = require('../models/models.js');
 
 	exports.load = function(req, res, next, quizId) {			// autoload. solo se ejecuta si en la peticion GET existe un :quizId. ayuda a factorizar el codigo del resto de controladores 
-		models.Quiz.find(quizId).then(							//si find() tiene exito
-			function(quiz) {
+		models.Quiz.find({										// carga de registro quiz
+			where: 		{id: Number(quizId)},					// where indice principal id = quizId recibido del GET
+			include: 	[{model: models.Comment}]				// incluye la tabla Comment como hijo
+			}).then(function(quiz) {
 				if (quiz) {
 					req.quiz = quiz;
 					next();
@@ -71,8 +73,8 @@
 	}; */
 	
 		// POST /quizes/create ----->>>> alternativo         
-	exports.create = function(req, res) {
-		var quiz = models.Quiz.build( req.body.quiz );
+	exports.create = function(req, res) {										
+		var quiz = models.Quiz.build( req.body.quiz );							// construccion de objeto quiz para luego introducir en la tabla
 		var errors = quiz.validate();											// objeto errors no tiene then(
 		if (errors) {
 			var i = 0; 
@@ -105,7 +107,7 @@
 			req.quiz 																// save: guarda en DB campos pregunta y respuesta de quiz
 			.save({fields: ["pregunta", "respuesta", "tema"]})
 			.then(function() {res.redirect('/quizes')});
-		}
+		};
 	};
 	
 	exports.destroy = function(req, res) {

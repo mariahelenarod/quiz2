@@ -3,3 +3,15 @@
 	<input type="text" name="respuesta" value="Responda aquí"/>						<!- se genera la variable respuesta para enviar en GET req ->
 	<input type="submit" value="Enviar">
 </form>
+
+<p><a href="/quizes/<%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a></p>
+
+<p><strong>Comentarios:</strong></p>
+<%for(index in quiz.Comments){%>
+<!--	<%if(quiz.Comments[index].publicado){%>   -->
+		<p>- <%=quiz.Comments[index].texto%></p>
+<!--	<%} else if(session.user && (session.user.isAdmin || (session.user && quiz.UserId === session.user.id))){%>     -->
+<!--	<p>- <%=quiz.Comments[index].texto%>    -->
+<!--	<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.Comments[index].id%>/publish"><button>Publicar</button></a></p>    -->
+>!--	<%}%>    -->
+<%}%>

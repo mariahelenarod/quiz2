@@ -1,4 +1,5 @@
-	// construye la DB y el modelo importando la estructura desde quiz.js
+	
+	// construye la DB y el modelo importando las estructuras de las tablas
 
 	var path = require('path');
 
@@ -15,21 +16,25 @@
 	var storage  = process.env.DATABASE_STORAGE;
 
 	var Sequelize = require('sequelize');								// crea objeto de la clase modelo ORM
-
-	// Usar BBDD SQLite o Postgres
-	var sequelize = new Sequelize(DB_name, user, pwd, 
+	
+	var sequelize = new Sequelize(DB_name, user, pwd, 					// Usar BBDD SQLite o Postgres. Constructor de la DB
 	  { dialect:  protocol,
 		protocol: protocol,
 		port:     port,
 		host:     host,
-		storage:  storage,  // solo SQLite (.env)
-		omitNull: true      // solo Postgres
+		storage:  storage,  											// solo SQLite (.env)
+		omitNull: true      											// solo Postgres
 	  }      
 	);
-
+	
 	var Quiz = sequelize.import(path.join(__dirname, 'quiz'));			// importar estructura y definicion de la tabla Quiz
+	var Comment = sequelize.import(path.join(__dirname, 'comment'));	// importar estructura y definicion de la tabla Coment
+	
+	Comment.belongsTo('Quiz');											// integridad referncial. Cada Comment es hijo de Quiz
+	Quiz.hasMany('Comment');											// el padre puede tener varios hijos
 
 	exports.Quiz = Quiz;												// exportar tablas
+	exports.Comment = Comment;
 
 	sequelize.sync().then(function() {									// sequelize.sync() inicializa tabla de preguntas en DB
 		Quiz.count().then(function(count) {								// success ejecuta el manejador cuando crea la tabla. Quiz.count().success() devuelve el numero de filas
