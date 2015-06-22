@@ -3,15 +3,17 @@
 	var router = express.Router();
 	var quizController = require('../controllers/quiz_controller');						// importa el controlador quiz_controller.js
 	var commentController = require('../controllers/comment_controller');				// importa el controlador comment_controller.js
+	var sessionController = require('../controllers/session_controller');				// importa el controlador session_controller.js
 	
-
-	/* GET home page. */
-	router.get('/', function(req, res) {
+	router.get('/', function(req, res) {												/* GET home page. */
 		res.render('index', {title: 'Quiz', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
 	});
 
-	// autoload de comandos con :quizId
-	router.param('quizId', quizController.load);										// peticiones GET con SQL :quizId
+	router.param('quizId', 								quizController.load);			// autoload de comandos. peticiones GET con SQL :quizId
+																						// Definición de rutas de sesion
+	router.get('/login',  								sessionController.new);     	// formulario login
+	router.post('/login', 								sessionController.create);  	// crear sesión
+	router.get('/logout', 								sessionController.destroy); 	// destruir sesión
 
 	router.get('/quizes',			 					quizController.index);			// accede a la lista completa de preguntas /quizes/index.ejs
 	router.get('/quizes/:quizId(\\d+)',					quizController.show);			// accede a una pregunta en concreto. envia al quizController la peticion GET con el parametro quizId (indice)
@@ -24,10 +26,9 @@
 	router.put('/quizes/:quizId(\\d+)',					quizController.update);			// dispara controlador update cuando el boton <salvar> del formulario edit.js
 	router.delete('/quizes/:quizId(\\d+)',				quizController.destroy);
 	
-	router.get('/quizes/:quizId(\\d+)/comments/new',	commentController.new);			// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller
-	router.post('/quizes/:quizId(\\d+)/comments',		commentController.create);		// dispara controlador update cuando el boton <salvar> del formulario edit.js
+	router.get('/quizes/:quizId(\\d+)/comments/new',	commentController.new);			// carga formulario /quizes/:quizId(\\d+)/comments/new y dispara el controlador new de comment_Controller
+	router.post('/quizes/:quizId(\\d+)/comments',		commentController.create);		// dispara controlador create cuando el boton <enviar> del formulario /comments/new.ejs
 	
-
 	router.get('/profile/author', function(req, res) {
 		res.render('profile/author', {title: 'Autor', errors: []});						// visualiza el autor
 	});

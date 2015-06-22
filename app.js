@@ -7,6 +7,7 @@
 	var bodyParser = require('body-parser');
 	var partials = require('express-partials');             // paquete para manejar vistas parciales del layout.ejs
 	var methodOverride = require('method-override');
+	var session = require('express-session');
 
 	var routes = require('./routes/index');
 	// var users = require('./routes/users');
@@ -19,14 +20,26 @@
 
 	app.use(partials());                                    	// instala el middleware que da soporte a vistas parciales
 
-	// uncomment after placing your favicon in /public
 	app.use(favicon(__dirname + '/public/favicon.ico'));
 	app.use(logger('dev'));
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({extended: true}));
-	app.use(cookieParser());
+	app.use(cookieParser('Quiz2'));								// semilla que llevara la cookie
+	app.use(session());
 	app.use(methodOverride('_method'));							// para utilizar en edit.ejs y encapsular el post como put
 	app.use(express.static(path.join(__dirname, 'public')));
+	
+	// Helpers dinamicos:
+	app.use(function(req, res, next) {
+		if (!req.session.redir) {								// si no existe lo inicializa
+			req.session.redir = '/';
+		}
+		if (!req.path.match(/\/login|\/logout|\/user/)) { 		// guardar path en session.redir para despues de logout volver a la misma vista del login
+			req.session.redir = req.path;						// req.path es le path de donde se hizo el login
+		}
+		res.locals.session = req.session;						// Hacer visible req.session en las vistas
+		next();
+	});
 
 	app.use('/', routes);
 	//app.use('/users', users);

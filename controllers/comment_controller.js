@@ -17,11 +17,11 @@
 		var errors = comment.validate();
 		if (errors) {
 			var i = 0; 
-			var errores = new Array();												// se convierte en [] con la propiedad message por compatibilidad con layout
+			var errores = new Array();												
 			for (var prop in errors) errores[i++] = {message: errors[prop]};        
 			res.render('comments/new', {comment: comment, errors: errores});
 		} else {
-			comment 																// save: guarda en DB campos pregunta y respuesta de quiz
+			comment 																		// save: guarda en DB campos pregunta y respuesta de quiz
 			.save()
 			.then(function() {res.redirect('/quizes/' + req.params.quizId)});		
 		}
