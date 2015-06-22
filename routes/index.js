@@ -19,12 +19,12 @@
 	router.get('/quizes/:quizId(\\d+)',					quizController.show);			// accede a una pregunta en concreto. envia al quizController la peticion GET con el parametro quizId (indice)
 	router.get('/quizes/:quizId(\\d+)/answer',			quizController.answer);			// se dispara cuando submit del form question.ejs hacia la ruta /quizes/answer. le pasa el id en la peticion GET req
 
-	router.get('/quizes/new',							quizController.new);			// carga el formulario /quizes/new
-	router.post('/quizes/create',						quizController.create);			// dispara controlador create cuando el boton <salvar> del formulario new.js
+	router.get('/quizes/new',							sessionController.loginRequired, quizController.new);			// carga el formulario /quizes/new si sessionController.loginRequired()
+	router.post('/quizes/create',						sessionController.loginRequired, quizController.create);		// dispara controlador create cuando el boton <salvar> del formulario new.js
 
-	router.get('/quizes/:quizId(\\d+)/edit',			quizController.edit);			// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller
-	router.put('/quizes/:quizId(\\d+)',					quizController.update);			// dispara controlador update cuando el boton <salvar> del formulario edit.js
-	router.delete('/quizes/:quizId(\\d+)',				quizController.destroy);
+	router.get('/quizes/:quizId(\\d+)/edit',			sessionController.loginRequired, quizController.edit);			// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller
+	router.put('/quizes/:quizId(\\d+)',					sessionController.loginRequired, quizController.update);		// dispara controlador update cuando el boton <salvar> del formulario edit.js
+	router.delete('/quizes/:quizId(\\d+)',				sessionController.loginRequired, quizController.destroy);
 	
 	router.get('/quizes/:quizId(\\d+)/comments/new',	commentController.new);			// carga formulario /quizes/:quizId(\\d+)/comments/new y dispara el controlador new de comment_Controller
 	router.post('/quizes/:quizId(\\d+)/comments',		commentController.create);		// dispara controlador create cuando el boton <enviar> del formulario /comments/new.ejs
