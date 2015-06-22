@@ -18,5 +18,5 @@
 		} else {
 			callback(new Error('El usuario no existe'));
 		};
-	}:
+	};
 		
