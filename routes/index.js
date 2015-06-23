@@ -10,6 +10,7 @@
 	});
 
 	router.param('quizId', 								quizController.load);			// autoload de comandos. peticiones GET con SQL :quizId
+	router.param('commentId',							commentController.load);
 																						// Definición de rutas de sesion
 	router.get('/login',  								sessionController.new);     	// formulario login
 	router.post('/login', 								sessionController.create);  	// crear sesión
@@ -26,11 +27,13 @@
 	router.put('/quizes/:quizId(\\d+)',					sessionController.loginRequired, quizController.update);		// dispara controlador update cuando el boton <salvar> del formulario edit.js
 	router.delete('/quizes/:quizId(\\d+)',				sessionController.loginRequired, quizController.destroy);
 	
-	router.get('/quizes/:quizId(\\d+)/comments/new',	commentController.new);			// carga formulario /quizes/:quizId(\\d+)/comments/new y dispara el controlador new de comment_Controller
-	router.post('/quizes/:quizId(\\d+)/comments',		commentController.create);		// dispara controlador create cuando el boton <enviar> del formulario /comments/new.ejs
+	router.get('/quizes/:quizId(\\d+)/comments/new',						commentController.new);											// carga formulario /quizes/:quizId(\\d+)/comments/new y dispara el controlador new de comment_Controller
+	router.post('/quizes/:quizId(\\d+)/comments',							commentController.create);										// dispara controlador create cuando el boton <enviar> del formulario /comments/new.ejs
+	router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish'),	sessionController.loginRequired, commentController.publish);	// 
 	
 	router.get('/profile/author', function(req, res) {
 		res.render('profile/author', {title: 'Autor', errors: []});						// visualiza el autor
 	});
 
 	module.exports = router;	
+	
