@@ -10,7 +10,7 @@
 	
 		
 <%for(index in quiz.comments){%>
-	<%if (quiz.comments[index].publicado || session.user){%>
+	<%if (quiz.comments[index].publicado){%>
 		<p>- <%=quiz.comments[index].texto%></p>
 		<p>Publicado- <%=quiz.comments[index].publicado%></p>
 	<%} else if	(session.user && !quiz.comments[index].publicado){%>
