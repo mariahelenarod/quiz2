@@ -28,7 +28,7 @@
 	);
 	
 	var Quiz = sequelize.import(path.join(__dirname, 'quiz'));			// importar estructura y definicion de la tabla Quiz
-	var Comment = sequelize.import(path.join(__dirname, 'comment'));	// importar estructura y definicion de la tabla Coment
+	var Comment = sequelize.import(path.join(__dirname, 'comment'));	// importar estructura y definicion de la tabla Comment
 	
 	Comment.belongsTo(Quiz);											// integridad referncial. Cada Comment es hijo de Quiz
 	Quiz.hasMany(Comment);												// el padre puede tener varios hijos
