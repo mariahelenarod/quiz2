@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 var debug = require('debug')('quiz');
 var app = require('../app');
-var fs = require('fs');
-var https = require('https');
+var fs = require("fs");
+var https = require("https");
 
 var options = {
-	key: 	fs.readFileSync('certs/quiz2-key.pem').toString(),
-	cert: 	fs.readFileSync('certs/quiz2-cert.pem').toString()
+    key: 	fs.readFileSync('certs/quiz2-key.pem').toString(),
+    cert: 	fs.readFileSync('certs/quiz2-cert.pem').toString()
 };
 
 app.set('port', process.env.PORT || 3000);
@@ -17,5 +17,5 @@ var server = app.listen(app.get('port'), function() {
 
 var serverSecure = https.createServer(options, app);
 serverSecure.listen(8443, function() {
-	debug('Express Server listening on port ' + server.address().port);
+	debug('Express server listening on port ' + server.address().port);
 });
