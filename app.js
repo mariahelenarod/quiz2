@@ -41,7 +41,7 @@
 		next();
 	});
 	
-	var sessionController = require('../controllers/session_controller');				// importa el controlador session_controller.js
+	var sessionController = require('/controllers/session_controller');				// importa el controlador session_controller.js
 	app.use(function(req, res, next) {
 		if (req.session.user) {
 			if (Date.now() - req.user.session.lastRequestTime > 1*60*1000) {
