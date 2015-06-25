@@ -43,7 +43,7 @@
 	
 	app.use(function(req, res, next) {
 		if (req.session.user) {
-			if (Date.now() - req.user.session.lastRequestTime > 1*60*1000) {
+			if (Date.now() - req.session.user.lastRequestTime > 1*60*1000) {
 				delete req.session.user;
 			} else {
 				req.user.session.lastRequestTime = Date.now();
