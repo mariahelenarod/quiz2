@@ -40,6 +40,18 @@
 		res.locals.session = req.session;						// Hacer visible req.session en las vistas
 		next();
 	});
+	
+	var sessionController = require('../controllers/session_controller');				// importa el controlador session_controller.js
+	app.use(function(req, res, next) {
+		if (req.session.user) {
+			if (Date.now() - req.user.session.lastRequestTime > 1*60*1000) {
+				sessionController.destroy();
+			} else {
+				req.user.session.lastRequestTime = Date.now();
+			}
+		}
+		next();
+	};
 
 	app.use('/', routes);
 	//app.use('/users', users);
