@@ -46,7 +46,7 @@
 			if (Date.now() - req.session.user.lastRequestTime > 1*60*1000) {
 				delete req.session.user;
 			} else {
-				req.user.session.lastRequestTime = Date.now();
+				req.session.user.lastRequestTime = Date.now();
 			}
 		}
 		next();
