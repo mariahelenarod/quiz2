@@ -51,7 +51,7 @@
 			}
 		}
 		next();
-	};
+	});
 
 	app.use('/', routes);
 	//app.use('/users', users);
