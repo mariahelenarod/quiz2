@@ -12,7 +12,7 @@
 	exports.calculate = function(req, res, next) {
 		models.Quiz.count()
 		.then(function(questions) {
-			statistic.questions = questions;
+			statistics.questions = questions;
 			return models.Quiz.count();
 		}).catch(function(error) {next(error)});
 	};
