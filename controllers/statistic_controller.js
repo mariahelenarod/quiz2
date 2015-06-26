@@ -18,5 +18,5 @@
 	};
 	
 	exports.show = function(req, res) {
-		res.render('show', {statistics: statistics, errors: []});
+		res.render('/show', {statistics: statistics, errors: []});
 	};
