@@ -1,18 +1,15 @@
 
 	var models = require('../models/models.js');
 	
-	// var errors = [];
-	
-	
+	var statistics = {
+		questions: 0,
+		comments: 0,
+		average_comments: 0,
+		no_commented: 0,
+		commented_questions: 0
+	};
 	
 	exports.calculate = function(req, res, next) {
-		var statistic = {
-			questions: 0,
-			comments: 0,
-			average_comments: 0,
-			no_commented: 0,
-			commented_questions: 0
-		};
 		models.Quiz.count()
 		.then(function(questions) {
 			statistic.questions = questions;
