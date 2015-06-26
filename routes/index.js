@@ -36,7 +36,7 @@
 		res.render('profile/author', {title: 'Autor', errors: []});						// visualiza el autor
 	});
 	
-	router.get('/statistics',						statisticsController.calculate, statisticsController.show);
+	router.get('/statistics/show',						statisticsController.calculate, statisticsController.show);
 
 	module.exports = router;	
 	
