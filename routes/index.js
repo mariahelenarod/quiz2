@@ -4,6 +4,7 @@
 	var quizController = require('../controllers/quiz_controller');						// importa el controlador quiz_controller.js
 	var commentController = require('../controllers/comment_controller');				// importa el controlador comment_controller.js
 	var sessionController = require('../controllers/session_controller');				// importa el controlador session_controller.js
+	var statisticsController = require('../controllers/statistic_controller');
 	
 	router.get('/', function(req, res) {												/* GET home page. */
 		res.render('index', {title: 'Quiz', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
@@ -34,6 +35,8 @@
 	router.get('/profile/author', function(req, res) {
 		res.render('profile/author', {title: 'Autor', errors: []});						// visualiza el autor
 	});
+	
+	router.get('/statistics',						statisticsController.calculate, statisticsController.show);
 
 	module.exports = router;	
 	
