@@ -13,8 +13,9 @@
 		models.Quiz.count()
 		.then(function(questions) {
 			statistics.questions = questions;
-			return models.Quiz.count();
-		}).catch(function(error) {next(error)});
+			return statistics.questions;})
+		.catch(function(error) {next(error)})
+		.finally(function() {next()});		
 	};
 	
 	exports.show = function(req, res) {
