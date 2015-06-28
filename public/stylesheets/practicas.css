@@ -1,0 +1,21 @@
+
+	@media (min-width: 768px) {
+
+		.eq-height-thumbs{
+			overflow:hidden;
+		}
+
+		.eq-height-thumbs .thumbnail{
+			margin-bottom: -99999px;
+			padding-bottom: 99999px;
+		}
+
+		.eq-height-thumbs-base{
+			overflow:hidden;
+		}
+
+		.eq-height-thumbs-base .thumbnail{
+			margin-top: -15px
+		}
+
+	}
