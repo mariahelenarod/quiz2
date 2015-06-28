@@ -57,13 +57,13 @@
 					<button type="submit" class="btn btn-default" value="Enviar">Submit</button>
 				</form>
 				<ul class="nav navbar-nav navbar-right">
-					
+					<div class="form-group">
 						<%if(!session.user){%>
 							<li><a href="/user">Sign up</a> - <a href="/login">Login</a></li>
 						<%}else{%>
 							<li><%=session.user.username%> - <a href="/user/<%=session.user.id%>/edit">Settings</a> - <a href="/logout">Logout</a></li>
 						<%}%>
-					
+					</div>
 					
 				</ul>
 			</div><!-- /.navbar-collapse -->
@@ -84,6 +84,7 @@
 	</section>
 </div>
 	
+</div>
 
 	<div id="page-wrap">
 		<header class="main" id="h1">
@@ -125,7 +126,7 @@
 		</footer>
 	</div>
 	
-</div>
+
 
 </body>
 
