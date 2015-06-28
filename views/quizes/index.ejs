@@ -14,10 +14,6 @@
 	<% } %>
 </table>
 
-<form method="get" action="/quizes">									<!- formulario para pedir qué se va a buscar de la lista de preguntas (name=search) ->
-    <input type="text" name="search" value="search" />
-    <input type="submit" value="Enviar">
-</form>
 <% if (session.user) { %>
 	<a href="/quizes/new"><button>Crear pregunta</button></a>
 <% } %>
