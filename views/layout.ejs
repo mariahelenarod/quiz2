@@ -70,25 +70,20 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 	
-	<div class="jumbotron">
-		<h1>Quiz, what?</h1>
-		<p>Quiz es un proyecto de prácticas para el curso MiriadaX de desarrollo de apps en la nube.</p>
-		<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+		
+	<div class="row">
+		<section>
+				<% if (errors.length) { %>
+					<span id='ErrorMsgs'>
+						Corregir errores:<br/>
+						<% for (var i in errors) { %>
+						<span> <%= errors[i].message %> </span><br/>
+						<% } %>
+					</span>
+				<% } %>
+				<%- body %>	<!- directiva ejs. body: convenio para cargar las vistas que se rendericen desde cualquier enrutador: index.js, quiz_controller.js ->
+		</section>
 	</div>
-	
-<div class="row">
-	<section>
-			<% if (errors.length) { %>
-				<span id='ErrorMsgs'>
-					Corregir errores:<br/>
-					<% for (var i in errors) { %>
-					<span> <%= errors[i].message %> </span><br/>
-					<% } %>
-				</span>
-			<% } %>
-			<%- body %>	<!- directiva ejs. body: convenio para cargar las vistas que se rendericen desde cualquier enrutador: index.js, quiz_controller.js ->
-	</section>
-</div>
 	
 
 
