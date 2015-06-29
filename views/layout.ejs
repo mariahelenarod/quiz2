@@ -70,6 +70,12 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 	
+	<div class="jumbotron">
+		<h1>Quiz, what?</h1>
+		<p>Quiz es un proyecto de prácticas para el curso MiriadaX de desarrollo de apps en la nube.</p>
+		<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+	</div>
+	
 <div class="row">
 	<section>
 			<% if (errors.length) { %>
@@ -84,7 +90,7 @@
 	</section>
 </div>
 	
-</div>
+
 
 	<!-- Modal ================================================================================== -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -107,46 +113,15 @@
 		</div>
 	</div>
 
-	<div id="page-wrap">
-		<header class="main" id="h1">
-			<%if(!session.user){%>
-				<span class="right"><a href="/user">Sign up</a> - <a href="/login">Login</a></span>
-			<%}else{%>
-				<span class="right"> <%=session.user.username%> - <a href="/user/<%=session.user.id%>/edit">Settings</a> - <a href="/logout">Logout</a></span>
-			<%}%>
-			<h2>Quiz: el juego de las preguntas</h2>
-		</header>
-
-		<nav class="main" id="n1" role="navigation">
-			<span><a href="/">Inicio</a></span>
-			<span><a href="/quizes">Preguntas</a></span>
-			<span><a href="/profile/author">Autor</a></span>
-			<span><a href="/quizes/statistics">Estadísticas</a></span>
-		</nav>
-
-		<section class="main" id="s1">
-			<% if (errors.length) { %>
-				<span id='ErrorMsgs'>
-					Corregir errores:<br/>
-					<% for (var i in errors) { %>
-					<span> <%= errors[i].message %> </span><br/>
-					<% } %>
-				</span>
-			<% } %>
-			<%- body %>	<!- directiva ejs. body: convenio para cargar las vistas que se rendericen desde cualquier enrutador: index.js, quiz_controller.js ->
-		</section>
 		
 		<footer>
-			<p class="pull-right"><a href="#">Back to top</a></p>
-			<p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+			<p class="pull-right"><a href="http://wikipedia.org/wiki/Quiz">Qué es un Quiz?</a></p>
+			<p>&copy; 2015 Company, Inc. &middot; <a href="https://github.com/jotamontoyo/quiz2">GitHub</a> &middot; <a href="#">Terms</a></p>
 		</footer>
 
-		<footer class="main" id="f1">
-			<a href="http://wikipedia.org/wiki/Quiz">Qué es un Quiz?</a>
-			<a href="https://github.com/jotamontoyo/quiz2">GitHub</a>
-		</footer>
-	</div>
 	
+
+</div>
 
 
 </body>
