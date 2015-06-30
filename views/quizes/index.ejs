@@ -3,9 +3,10 @@
 		<ul class="list-group">
 		<div class="list-group-item">
 			<a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
-			<% if (session.user) { %>		
+			<% if (session.user) { %>
+				<button class="btn btn-default">
 				<a href="quizes/<%= quizes[i].id %>/edit"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
-				
+				</button>
 				
 					<form method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">									<!- @override ->
 					
