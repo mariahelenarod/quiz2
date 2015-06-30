@@ -4,11 +4,11 @@
 		<div class="list-group-item">
 			<a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
 			<% if (session.user) { %>
-				<button class="btn btn-default">
-				<a href="quizes/<%= quizes[i].id %>/edit"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
-				</button>
 				
-					<form method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">									<!- @override ->
+				<a href="quizes/<%= quizes[i].id %>/edit"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+				
+				
+					<form class="navbar-form navbar-left" method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">									<!- @override ->
 					
 						<button class="btn btn-default" type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">borrar
 							<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
