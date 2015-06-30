@@ -13,8 +13,8 @@
 				
 					<form method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">									<!- @override ->
 					
-						<button class="btn btn-default" type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">borrar
-							<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+						<button class="btn btn-danger" type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 						</button>
 					
 					</form>
