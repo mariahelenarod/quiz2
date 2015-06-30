@@ -2,13 +2,16 @@
 	<% var i; for (i=0; i < quizes.length; i++) { %>
 		<ul class="list-group">
 		<div class="list-group-item">
+		
+			<form class="form-inline">
+		
 			<a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
 			<% if (session.user) { %>
 				
 				<a href="quizes/<%= quizes[i].id %>/edit"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
 				
 				
-					<form class="navbar-form navbar-left" method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">									<!- @override ->
+					<form method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">									<!- @override ->
 					
 						<button class="btn btn-default" type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">borrar
 							<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
@@ -17,6 +20,9 @@
 					</form>
 				
 			<% } %>
+			
+			</form>
+			
 		</div>
 		</ul>
 	<% } %>
