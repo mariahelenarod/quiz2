@@ -6,7 +6,7 @@
 				<a href="quizes/<%= quizes[i].id %>/edit"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
 				
 				
-					<form method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">									<!- @override ->
+					<form class="navbar-form navbar-left" method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">									<!- @override ->
 						<button type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">borrar</button>
 					</form>
 				
