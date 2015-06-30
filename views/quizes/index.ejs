@@ -1,6 +1,6 @@
-<div class="list-group">
+<ul class="list-group">
 	<% var i; for (i=0; i < quizes.length; i++) { %>
-		<li>
+		<li class="list-group-item">
 			<a href="quizes/<%= quizes[i].id %>" class="list-group-item"><%= quizes[i].pregunta %></a>
 			<% if (session.user) { %>		
 				<a href="quizes/<%= quizes[i].id %>/edit"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
@@ -13,7 +13,7 @@
 			<% } %>
 		</li>
 	<% } %>
-</div>
+</ul>
 
 <% if (session.user) { %>
 	<a href="/quizes/new"><button>Crear pregunta</button></a>
