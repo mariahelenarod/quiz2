@@ -2,7 +2,9 @@
 <html lang="en" class="no-js">
 	
 <head>
-	<meta charset="UTF-8" />
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Preguntas</title>
 	
 	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css"/>
@@ -71,8 +73,8 @@
 	</nav>
 	
 		
-	<div class="row">
-		<section>
+	<div class="row" min-height="500px">
+
 				<% if (errors.length) { %>
 					<span id='ErrorMsgs'>
 						Corregir errores:<br/>
@@ -82,7 +84,7 @@
 					</span>
 				<% } %>
 				<%- body %>	<!- directiva ejs. body: convenio para cargar las vistas que se rendericen desde cualquier enrutador: index.js, quiz_controller.js ->
-		</section>
+
 	</div>
 	
 
@@ -109,7 +111,7 @@
 	</div>
 
 	
-	<div class="footer" text-align="center">
+	<div class="footer">
 		<p>&copy; 2015 Company, Inc. &middot; <a href="https://github.com/jotamontoyo/quiz2">GitHub</a> &middot; <a href="#">Terms</a></p>
 	</div>
 
