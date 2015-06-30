@@ -8,7 +8,9 @@
 				
 				
 					<form method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">									<!- @override ->
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true">
 						<button type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">borrar</button>
+					</span>
 					</form>
 				
 			<% } %>
