@@ -48,7 +48,19 @@
 				res.render('temas/index', { quizes: quizes, errors: []});
 			}
 		).catch(function(error) { next(error)});
-	};								          								
+	};		
+
+	exports.showbytema = function(req,res){
+		tema = req.params.tema;
+		console.log(req.params.tema);
+		models.Quiz.findAll({
+			where: {tema: req.params.tema}
+		}).then(
+			function(quizes) {
+				res.render('temas/showbytema.ejs', { quizes: quizes, errors: []});
+			}
+		).catch(function(error) { next(error)});
+	};
 
 	exports.answer = function(req, res) {										// GET /quizes/answer/:id
 		var resultado = 'Incorrecto';			

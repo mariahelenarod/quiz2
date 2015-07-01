@@ -33,6 +33,7 @@
 	router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish',   sessionController.loginRequired, commentController.publish);	// 
 	
 	router.get('/temas',			 					quizController.showtemas);
+	router.get('/temas/:tema', 							quizController.showbytema);
 	
 	router.get('/profile/author', function(req, res) {
 		res.render('profile/author', {title: 'Autor', errors: []});						// visualiza el autor
