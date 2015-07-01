@@ -36,6 +36,19 @@
 	exports.show = function(req, res) {											// GET /quizes/:id
 		res.render('quizes/show', {quiz: req.quiz, errors: []});				// renderiza la vista /quizes/show del quizId selecionado con load find()
 	};									          								// req.quiz: instancia de quiz cargada con autoload
+	
+	exports.showtemas = function(req, res, next){
+		models.Quiz.findAll(
+			{
+				attributes:['tema'],
+				group: ['tema']	
+			}
+		).then(
+			function(quizes) {
+				res.render('temas/index', { quizes: quizes, errors: []});
+			}
+		).catch(function(error) { next(error)});
+	};								          								
 
 	exports.answer = function(req, res) {										// GET /quizes/answer/:id
 		var resultado = 'Incorrecto';			
