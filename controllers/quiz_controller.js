@@ -37,31 +37,6 @@
 		res.render('quizes/show', {quiz: req.quiz, errors: []});				// renderiza la vista /quizes/show del quizId selecionado con load find()
 	};									          								// req.quiz: instancia de quiz cargada con autoload
 	
-	exports.showtemas = function(req, res, next){
-		models.Quiz.findAll(
-			{
-				attributes:['tema'],
-				group: ['tema']	
-			}
-		).then(
-			function(quizes) {
-				res.render('temas/index', { quizes: quizes, errors: []});
-			}
-		).catch(function(error) { next(error)});
-	};		
-
-	exports.showbytema = function(req,res){
-		tema = req.params.tema;
-		console.log(req.params.tema);
-		models.Quiz.findAll({
-			where: {tema: req.params.tema}
-		}).then(
-			function(quizes) {
-				res.render('temas/showbytema.ejs', { quizes: quizes, errors: []});
-			}
-		).catch(function(error) { next(error)});
-	};
-
 	exports.answer = function(req, res) {										// GET /quizes/answer/:id
 		var resultado = 'Incorrecto';			
 		if (req.query.respuesta === req.quiz.respuesta) {						// comprueba la variable respuesta de la peticion GET req recibida del form question.ejs vs req.quiz.respuesta, que es la respuesta que devuelve find() del autoload
@@ -124,8 +99,31 @@
 			res.redirect('/quizes');
 		}).catch(function(error) {next(error)});
 	};
-		
 	
+	exports.showtemas = function(req, res, next){
+		models.Quiz.findAll(
+			{
+				attributes:['tema'],
+				group: ['tema']	
+			}
+		).then(
+			function(quizes) {
+				res.render('temas/index', { quizes: quizes, errors: []});
+			}
+		).catch(function(error) { next(error)});
+	};		
+
+	exports.showbytema = function(req,res){
+		tema = req.params.tema;
+		console.log(req.params.tema);
+		models.Quiz.findAll({
+			where: {tema: req.params.tema}
+		}).then(
+			function(quizes) {
+				res.render('temas/showbytema.ejs', { quizes: quizes, errors: []});
+			}
+		).catch(function(error) { next(error)});
+	};
 	
 	
 	
