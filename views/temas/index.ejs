@@ -1,8 +1,11 @@
 <h4>Temas</h4>
-<ul>
-	<% var i; for (i=0; i < quizes.length; i++) { %>
 
-			<li><a name="<%= quizes[i].tema %>" href="temas/<%= quizes[i].tema %>"><%= quizes[i].tema %> </a></li>
-
-	<% } %>
-</ul><p>
+<div class="panel panel-default table-responsive">
+	<table class="table">
+		<tr>
+			<% var i; for (i=0; i < quizes.length; i++) { %>
+				<td><a name="<%= quizes[i].tema %>" href="temas/<%= quizes[i].tema %>"><%= quizes[i].tema %> </a></td>
+			<% } %>
+		</tr>
+	</table>
+</div>
