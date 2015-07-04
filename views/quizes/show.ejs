@@ -1,7 +1,7 @@
 
 
 <form class="form-horizontal" method="get" action="/quizes/<%= quiz.id %>/answer">                         	<!- cuando submit, llama a export.answer del quiz_controller.js ->
-	<div class="form-group
+	<div class="form-group">
 		<p>Pregunta: <%= quiz.pregunta %> </p>
 		<input type="text" name="respuesta" value="Responda aquí"/>						<!- se genera la variable respuesta para enviar en GET req ->
 		<input type="submit" value="Enviar">
