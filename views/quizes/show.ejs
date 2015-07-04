@@ -14,8 +14,10 @@
 	
 <div class="panel panel-default table-responsive">
 	<table class="table">
-		<tr>		
-			<td><%for(index in quiz.comments){%>
+				
+			<%for(index in quiz.comments){%>
+			<tr>
+				<td>
 				<%if (quiz.comments[index].publicado){%>
 					<p><%=quiz.comments[index].texto%></p>
 				<%} else if	(session.user && !quiz.comments[index].publicado){%>
@@ -23,8 +25,10 @@
 					<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
 					<button class="btn btn-success btn-xm"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Publicar</button></a></p>
 				<%}%>
-			<%}%></td>
-		</tr>
+				</td>
+			</tr>
+			<%}%>
+		
 	</table>
 </div>
 

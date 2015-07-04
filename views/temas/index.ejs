@@ -2,10 +2,12 @@
 
 <div class="panel panel-default table-responsive">
 	<table class="table">
-		<tr>
-			<td><% var i; for (i=0; i < quizes.length; i++) { %>
-				<a name="<%= quizes[i].tema %>" href="temas/<%= quizes[i].tema %>"><%= quizes[i].tema %> </a>
-			<% } %></td>
-		</tr>
+		
+			<% var i; for (i=0; i < quizes.length; i++) { %>
+			<tr>
+				<td><a name="<%= quizes[i].tema %>" href="temas/<%= quizes[i].tema %>"><%= quizes[i].tema %> </a></td>
+			</tr>
+			<% } %>
+		
 	</table>
 </div>
