@@ -17,15 +17,18 @@
 				
 			<%for(index in quiz.comments){%>
 			<tr>
-				<td>
+				
 				<%if (quiz.comments[index].publicado){%>
+					<td>
 					<p><%=quiz.comments[index].texto%></p>
+					</td>
 				<%} else if	(session.user && !quiz.comments[index].publicado){%>
+					<td>
 					<p><%=quiz.comments[index].texto%>
 					<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
 					<button class="btn btn-success btn-xm"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Publicar</button></a></p>
+					</td>
 				<%}%>
-				</td>
 			</tr>
 			<%}%>
 		
