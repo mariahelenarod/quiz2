@@ -4,7 +4,7 @@
 	<table class="table">
 		<tr>
 			<% var i; for (i=0; i < quizes.length; i++) { %>
-				<td><a name="<%= quizes[i].tema %>" href="temas/<%= quizes[i].tema %>"><%= quizes[i].tema %> </a></td>
+				<li><a name="<%= quizes[i].tema %>" href="temas/<%= quizes[i].tema %>"><%= quizes[i].tema %> </a></li>
 			<% } %>
 		</tr>
 	</table>

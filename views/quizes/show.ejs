@@ -1,21 +1,30 @@
-<form method="get" action="/quizes/<%= quiz.id %>/answer">                         	<!- cuando submit, llama a export.answer del quiz_controller.js ->
-	<p>Pregunta: <%= quiz.pregunta %> </p>
-	<input type="text" name="respuesta" value="Responda aquí"/>						<!- se genera la variable respuesta para enviar en GET req ->
-	<input type="submit" value="Enviar">
+
+
+<form class="form-horizontal" method="get" action="/quizes/<%= quiz.id %>/answer">                         	<!- cuando submit, llama a export.answer del quiz_controller.js ->
+	<div class="form-group
+		<p>Pregunta: <%= quiz.pregunta %> </p>
+		<input type="text" name="respuesta" value="Responda aquí"/>						<!- se genera la variable respuesta para enviar en GET req ->
+		<input type="submit" value="Enviar">
+	</div>
 </form>
 
-<p><a href="/quizes/<%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a></p>
+
 
 <p><strong>Comentarios:</strong></p>
 	
-		
-<%for(index in quiz.comments){%>
-	<%if (quiz.comments[index].publicado){%>
-		<p>- <%=quiz.comments[index].texto%></p>
-	<%} else if	(session.user && !quiz.comments[index].publicado){%>
-			<p>- <%=quiz.comments[index].texto%>
-			<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish"><button>Publicar</button></a></p>
-	<%}%>
-<%}%>
+<div class="panel panel-default table-responsive">
+	<table class="table">
+		<tr>		
+			<%for(index in quiz.comments){%>
+				<%if (quiz.comments[index].publicado){%>
+					<p>- <%=quiz.comments[index].texto%></p>
+				<%} else if	(session.user && !quiz.comments[index].publicado){%>
+					<p>- <%=quiz.comments[index].texto%>
+					<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish"><button>Publicar</button></a></p>
+				<%}%>
+			<%}%>
+		</tr>
+	</table>
+</div>
 
-
+<p><a href="/quizes/<%= quiz.id %>/comments/new"><button type="button" class="btn btn-primary">Nuevo comentario</button></a></p>
