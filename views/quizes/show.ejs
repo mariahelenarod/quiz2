@@ -15,14 +15,15 @@
 <div class="panel panel-default table-responsive">
 	<table class="table">
 		<tr>		
-			<%for(index in quiz.comments){%>
+			<li><%for(index in quiz.comments){%>
 				<%if (quiz.comments[index].publicado){%>
-					<p>- <%=quiz.comments[index].texto%></p>
+					<p><%=quiz.comments[index].texto%></p>
 				<%} else if	(session.user && !quiz.comments[index].publicado){%>
-					<p>- <%=quiz.comments[index].texto%>
-					<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish"><button>Publicar</button></a></p>
+					<p><%=quiz.comments[index].texto%>
+					<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
+					<button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Publicar</button></a></p>
 				<%}%>
-			<%}%>
+			<%}%></li>
 		</tr>
 	</table>
 </div>
