@@ -24,9 +24,9 @@
 					</td>
 				<%} else if	(session.user && !quiz.comments[index].publicado){%>
 					<td>
-					<p><%=quiz.comments[index].texto%>
+					<h5><%=quiz.comments[index].texto%>
 					<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
-					<button class="btn btn-success btn-xm"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Publicar</button></a></p>
+					<button class="btn btn-success btn-xm"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Publicar</button></a></h5>
 					</td>
 				<%}%>
 			</tr>
