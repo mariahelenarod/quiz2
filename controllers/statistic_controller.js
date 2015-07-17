@@ -21,7 +21,7 @@
 			statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
 			return statistics.average_comments;})
 		.then(function(no_commented) {
-			if (!Comment.length) {
+			if (!Quiz.Comment.length) {
 				no_commented++;
 			}
 			return statistics.no_commented;})
