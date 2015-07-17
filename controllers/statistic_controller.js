@@ -14,6 +14,9 @@
 		.then(function(questions) {
 			statistics.questions = questions;
 			return statistics.questions;})
+		.then(function(comments) {
+			statistics.comments = comments;
+			return statistics.comments;})
 		.catch(function(error) {next(error)})
 		.finally(function() {next()});		
 	};
