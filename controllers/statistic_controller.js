@@ -17,6 +17,10 @@
 		.then(function(comments) {
 			statistics.comments = comments;
 			return statistics.comments;})
+		.then(function(average_comments) {
+			statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
+			return statistics.average_comments;})
+			
 		.catch(function(error) {next(error)})
 		.finally(function() {next()});		
 	};
