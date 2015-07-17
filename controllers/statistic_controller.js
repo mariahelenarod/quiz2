@@ -25,6 +25,11 @@
 				no_commented++;
 			}
 			return statistics.no_commented;})
+		.then(function(commented_questions) {
+			if (models.Comment.length) {
+				commented_questions++;
+			}
+			return statistics.commented_questions;})
 		.catch(function(error) {next(error)})
 		.finally(function() {next()});		
 	};
