@@ -15,7 +15,7 @@
 			statistics.questions = questions;
 			return statistics.questions;})
 		.then(function(comments) {
-			statistics.comments = models.Comments.count();
+			statistics.comments = models.Comment.count();
 			return statistics.comments;})
 		.then(function(average_comments) {
 			statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
