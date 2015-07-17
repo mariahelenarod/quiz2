@@ -16,7 +16,7 @@
 			return statistics.questions;})
 		.then(function(comments) {
 			statistics.comments = comments;
-			return models.Comment.countUnpublished();
+			return models.Comment.count();
 		.then(function(average_comments) {
 			statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
 			return statistics.average_comments;})
