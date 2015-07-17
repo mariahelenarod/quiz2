@@ -23,12 +23,14 @@
 		.then(function(no_commented) {
 			if (!models.Comment.length) {
 				no_commented++;
-			}
+				console.log('sin');
+			};
 			return statistics.no_commented;})
 		.then(function(commented_questions) {
 			if (models.Comment.length) {
 				commented_questions++;
-			}
+				console.log('con');
+			};
 			return statistics.commented_questions;})
 		.catch(function(error) {next(error)})
 		.finally(function() {next()});		
