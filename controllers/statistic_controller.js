@@ -20,7 +20,11 @@
 		.then(function(average_comments) {
 			statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
 			return statistics.average_comments;})
-			
+		.then(function(no_commented) {
+			if (!models.Quiz.comments.length) {
+				no_commented++;
+			}
+			return statistics.no_commented;})
 		.catch(function(error) {next(error)})
 		.finally(function() {next()});		
 	};
