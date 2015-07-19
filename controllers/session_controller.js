@@ -30,12 +30,10 @@
 				lastRequestTime:	Date.now() 														// crea la variable lastRequestTime para guardar a que hora empezo la sesion
 			};		
 			res.redirect(req.session.redir.toString());												// redirección a path anterior a login
-//			res.redirect('/');
 		});
 	};
 	
 	exports.destroy = function(req, res) {															// DELETE /logout   -- Destruir sesion 
 		delete req.session.user;
 		res.redirect(req.session.redir.toString()); 												// redirect a path anterior a login
-//		res.redirect('/');
 	};
