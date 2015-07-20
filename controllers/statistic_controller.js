@@ -90,29 +90,29 @@
     El número de preguntas con comentarios
 */
 exports.show = function(req,res){
-  models.Quiz.count().then(function (questions){
+  models.Quiz.count().then(function (_quizes){
 
-  models.Comment.count().then(function (comments){
+  models.Comment.count().then(function (_comments){
 
-  var average_comments = comments / questions;
+  var _midComments= _comments / _quizes;
 
   models.Quiz.findAll({
     include:[{model: models.Comment}]
-    }).then(function (questions){
+    }).then(function (quizes){
 
-        var commented_questions = 0;
-        for (i in questions){
-        if (questions[i].Comments.length)
-       commented_questions++;
+        var _quesWithCom = 0;
+        for (i in quizes){
+        if (quizes[i].Comments.length)
+        _quesWithCom++;
     }
 
-    var no_commented = questions - commented_questions;
+    var _quesWithoutCom = _quizes - _quesWithCom;
 
-    res.render('quizes/statistics', {questions: questions,
-                                      comments: comments,
-                                      average_comments: average_comments,
-                                      commented_questions: commented_questions,
-                                      no_commented: no_commented,
+    res.render('quizes/stats', {quizes: _quizes,
+                                      comments: _comments,
+                                      midComments: _midComments,
+                                      quesWithCom: _quesWithCom,
+                                      quesWithoutCom: _quesWithoutCom,
                                       errors: []
     });
 

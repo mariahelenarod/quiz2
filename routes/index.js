@@ -39,7 +39,7 @@
 		res.render('profile/author', {title: 'Autor', errors: []});						// visualiza el autor
 	});
 	
-	router.get('/quizes/statistics',					statisticsController.show);
+	router.get('/quizes/stats',					statisticsController.show);
 
 	module.exports = router;	
 	
