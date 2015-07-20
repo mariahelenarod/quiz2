@@ -98,11 +98,11 @@ exports.show = function(req,res){
 
   models.Quiz.findAll({
     include:[{model: models.Comment}]
-    }).then(function (quizes){
+    }).then(function (questions){
 
-        var _quesWithCom = 0;
-        for (i in quizes){
-        if (quizes[i].Comments.length)
+        var commented_questions = 0;
+        for (i in questions){
+        if (questions[i].Comments.length)
        commented_questions++;
     }
 
