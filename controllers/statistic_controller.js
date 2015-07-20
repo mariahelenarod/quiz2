@@ -41,7 +41,7 @@
 		models.Quiz.count()
 		.then(function(questions) {
 			statistics.questions = questions;
-			moldels.Comment.count().then(function(comments) {
+			models.Comment.count().then(function(comments) {
 				statistics.comments = comments;
 				statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);})
 		})
