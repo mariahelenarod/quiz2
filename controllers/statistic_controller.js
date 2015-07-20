@@ -1,13 +1,13 @@
 
 	var models = require('../models/models.js');
 	
-	var statistics = {
+/*	var statistics = {
 		questions: 0,
 		comments: 0,
 		average_comments: 0,
 		no_commented: 0,
 		commented_questions: 0
-	};
+	}; */
 	
 /*	exports.calculate = function(req, res, next) {
 		models.Quiz.count()
@@ -37,7 +37,7 @@
 	}; */
 	
 	
-	exports.calculate = function(req, res, next) {
+/*	exports.calculate = function(req, res, next) {
 		models.Quiz.count()
 		.then(function(questions) {
 			statistics.questions = questions;
@@ -47,7 +47,7 @@
 		})
 		.catch(function(error) {next(error)})
 		.finally(function() {next()});		
-	};
+	}; */
 			
 			
 /*			statistics.questions = questions;
@@ -77,9 +77,51 @@
 	
 	
 	
-	exports.show = function(req, res) {
+/*	exports.show = function(req, res) {
 		res.render('quizes/statistics', {statistics: statistics, errors: []});
-	};
+	}; */
+	
+	
+/*
+    El número de preguntas
+    El número de comentarios totales
+    El número medio de comentarios por pregunta
+    El número de preguntas sin comentarios
+    El número de preguntas con comentarios
+*/
+exports.show = function(req,res){
+  models.Quiz.count().then(function (questions){
+
+  models.Comment.count().then(function (comments){
+
+  var average_comments = comments / questions;
+
+  models.Quiz.findAll({
+    include:[{model: models.Comment}]
+    }).then(function (quizes){
+
+        var _quesWithCom = 0;
+        for (i in quizes){
+        if (quizes[i].Comments.length)
+       commented_questions++;
+    }
+
+    var no_commented = questions - commented_questions;
+
+    res.render('estadisticas/statistics', {questions: questions,
+                                      comments: comments,
+                                      average_comments: average_comments,
+                                      commented_questions: commented_questions,
+                                      no_commented: no_commented,
+                                      errors: []
+    });
+
+  })
+
+  })
+});
+};
+
 	
 	
 	
