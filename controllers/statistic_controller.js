@@ -1,13 +1,13 @@
 
 	var models = require('../models/models.js');
 	
-/*	var statistics = {
+	var statistics = {
 		questions: 0,
 		comments: 0,
 		average_comments: 0,
 		no_commented: 0,
 		commented_questions: 0
-	}; */
+	};
 	
 /*	exports.calculate = function(req, res, next) {
 		models.Quiz.count()
@@ -37,7 +37,7 @@
 	}; */
 	
 	
-/*	exports.calculate = function(req, res, next) {
+	exports.calculate = function(req, res, next) {
 		models.Quiz.count()
 		.then(function(questions) {
 			statistics.questions = questions;
@@ -47,7 +47,7 @@
 		})
 		.catch(function(error) {next(error)})
 		.finally(function() {next()});		
-	}; */
+	};
 			
 			
 /*			statistics.questions = questions;
@@ -74,12 +74,10 @@
 		.finally(function() {next()});		
 	}; */
 	
-	
-	
-	
-/*	exports.show = function(req, res) {
+
+	exports.show = function(req, res) {
 		res.render('quizes/statistics', {statistics: statistics, errors: []});
-	}; */
+	}; 
 	
 	
 /*
@@ -89,7 +87,9 @@
     El número de preguntas sin comentarios
     El número de preguntas con comentarios
 */
-exports.show = function(req,res){
+
+
+/* exports.show = function(req,res){
   models.Quiz.count().then(function (_quizes){
 
   models.Comment.count().then(function (_comments){
@@ -120,7 +120,7 @@ exports.show = function(req,res){
 
   })
 });
-};
+}; */
 
 	
 	
