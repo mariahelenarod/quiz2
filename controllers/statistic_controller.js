@@ -43,9 +43,7 @@
 			statistics.questions = questions;
 			models.Comment.count().then(function(comments) {
 				statistics.comments = comments;
-				statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
-			})
-			return statistics;
+				statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);})
 		})
 		.catch(function(error) {next(error)})
 		.finally(function() {next()});		
