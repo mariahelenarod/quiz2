@@ -108,7 +108,7 @@ exports.show = function(req,res){
 
     var no_commented = questions - commented_questions;
 
-    res.render('estadisticas/statistics', {questions: questions,
+    res.render('quizes/statistics', {questions: questions,
                                       comments: comments,
                                       average_comments: average_comments,
                                       commented_questions: commented_questions,
