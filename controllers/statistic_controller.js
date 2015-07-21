@@ -47,9 +47,9 @@
 				models.Quiz.findAll({
 					include:	[{model: models.Comment}]})
 				.then(function(quizes) {
-					for (var i in quizes) {
+					for (index in quizes) {
 						console.log('entra');
-						if (quizes[i].Comment.length) {
+						if (quizes[index].Comment.length) {
 							console.log('con');
 							statistics.commented_questions++;
 						} else {console.log('sin'); statistics.no_commented++;}
