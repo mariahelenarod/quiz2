@@ -45,9 +45,11 @@
 				statistics.comments = comments;
 				statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
 				for (var i in questions) {
+					console.log('entra');
 					if (questions[i].Comment.length) {
+						console.log('con');
 						commented_questions++;
-					} else {no_commented++;}
+					} else {console.log('sin'); no_commented++;}
 				};
 			})
 		})
