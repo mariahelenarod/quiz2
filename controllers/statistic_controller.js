@@ -44,13 +44,17 @@
 			models.Comment.count().then(function(comments) {
 				statistics.comments = comments;
 				statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
-				for (var i in questions) {
-					console.log('entra');
-					if (questions[i].Comment.length) {
-						console.log('con');
-						commented_questions++;
-					} else {console.log('sin'); no_commented++;}
-				};
+				models.Quiz.findAll({
+					include:	[{model: models.Comment}]})
+				.then(function(quizes) {
+					for (var i in quizes) {
+						console.log('entra');
+						if (quizes[i].Comment.length) {
+							console.log('con');
+							statistics.commented_questions++;
+						} else {console.log('sin'); statistics.no_commented++;}
+					};
+				})
 			})
 		})
 		.catch(function(error) {next(error)})
