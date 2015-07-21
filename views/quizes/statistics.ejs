@@ -1,9 +1,14 @@
 <h2>Página de estadísticas</h2>
 
-<ul>
-  <li>Preguntas: <%= statistics.questions %></li>
-  <li>Comentarios: <%= statistics.comments %></li>
-  <li>Comentarios por pregunta: <%= statistics.average_comments %></li>
-  <li>Preguntas sin comentarios: <%= statistics.no_commented %></li>
-  <li>Preguntas con comentarios: <%= statistics.commented_questions %></li>
-</ul>
+<div class="panel panel-default table-responsive">
+	<table class="table">
+
+		
+		  <tr>Preguntas: <%= statistics.questions %></tr>
+		  <tr>Comentarios: <%= statistics.comments %></tr>
+		  <tr>Comentarios por pregunta: <%= statistics.average_comments %></tr>
+		  <tr>Preguntas sin comentarios: <%= statistics.no_commented %></tr>
+		  <tr>Preguntas con comentarios: <%= statistics.commented_questions %></tr>
+		
+	</table>
+</div>
