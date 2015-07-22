@@ -96,7 +96,7 @@
 		models.Quiz.count()
 		.then(function(questions) {
 			statistics.questions = questions;
-			return models.Comment.count().then(function(comments) {
+			models.Comment.count().then(function(comments) {
 				statistics.comments = comments;
 				statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
 				return models.Quiz.findAll({
