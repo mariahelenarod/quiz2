@@ -47,6 +47,7 @@
 				models.Quiz.findAll({
 					include:	[{model: models.Comment}]})
 				.then(function(quizes) {
+					console.log('entra .then()');
 					for (index in quizes) {
 						console.log('entra');
 						if (quizes[index].Comment.length) {
