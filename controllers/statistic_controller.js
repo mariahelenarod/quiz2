@@ -67,7 +67,7 @@
 	}; */
 	
 	
-	exports.calculate = function(req, res, next) {
+/*	exports.calculate = function(req, res, next) {
 		Promise.all([
 			models.Quiz.count(),
 			models.Comment.count(),
@@ -90,34 +90,34 @@
 				}
 			}
 		}).then(next, next);
-	};
-			
-			
-/*			statistics.questions = questions;
-			return statistics.questions;})
-		.then(function(comments) {
-			statistics.comments = models.Comment.count();
-			return statistics.comments;})
-		.then(function(average_comments) {
-			statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
-			return statistics.average_comments;})
-		.then(function(no_commented) {
-			if (!models.Comment.length) {
-				no_commented++;
-				console.log('sin');
-			};
-			return statistics.no_commented;})
-		.then(function(commented_questions) {
-			if (models.Comment.length) {
-				commented_questions++;
-				console.log('con');
-			};
-			return statistics.commented_questions;})
-		.catch(function(error) {next(error)})
-		.finally(function() {next()});		
 	}; */
 	
-
+	exports.calculate = function(req, res, next) {
+		models.Quiz.count()
+		.then(function(questions) {
+			statistics.questions = questions;
+			return models.Comment.count().then(function(comments) {
+				statistics.comments = comments;
+				statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
+				return models.Quiz.findAll({
+					include:	[{model: models.Comment}]})
+				.then(function(quizes) {
+					console.log('entra .then()');
+					for (index in quizes) {
+						console.log('entra');
+						if (quizes[index].Comment.length) {
+							console.log('con');
+							statistics.commented_questions++;
+						} else {console.log('sin'); statistics.no_commented++;}
+					};
+				})
+			})
+		})
+		.catch(function(error) {next(error)})
+		.finally(function() {next()});
+	};
+	
+			
 	exports.show = function(req, res) {
 		res.render('quizes/statistics', {statistics: statistics, errors: []});
 	}; 
