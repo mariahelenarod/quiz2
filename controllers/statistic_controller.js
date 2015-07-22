@@ -37,7 +37,7 @@
 	}; */
 	
 	
-	exports.calculate = function(req, res, next) {
+/*	exports.calculate = function(req, res, next) {
 		models.Quiz.count().then(function(questions) {
 			statistics.questions = questions;
 
@@ -64,7 +64,33 @@
 		}).finally(function() {
 			next()
 		});
-	};
+	}; */
+	
+	
+	exports.calculate = function(req, res, next) {
+  Promise.all([
+    models.Quiz.count(),
+    models.Comment.count(),
+    models.Quiz.findAll({
+      include: [{
+        model: models.Comment
+      }]
+    })
+  ]).then(function(results)
+    // `results` is an array of [questions, comments, quizes]
+    statistics.questions = results[0];
+    statistics.comments = results[1];
+    statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
+
+    for (index in results[2]) {
+      if (results[2][index].Comment.length) {
+        statistics.commented_questions++;
+      } else {
+        statistics.no_commented++;
+      }
+    }
+  }).then(next, next);
+};
 			
 			
 /*			statistics.questions = questions;
