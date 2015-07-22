@@ -38,28 +38,32 @@
 	
 	
 	exports.calculate = function(req, res, next) {
-		models.Quiz.count()
-		.then(function(questions) {
+		models.Quiz.count().then(function(questions) {
 			statistics.questions = questions;
-			models.Comment.count().then(function(comments) {
-				statistics.comments = comments;
-				statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
-				models.Quiz.findAll({
-					include:	[{model: models.Comment}]})
-				.then(function(quizes) {
-					console.log('entra .then()');
-					for (index in quizes) {
-						console.log('entra');
-						if (quizes[index].Comment.length) {
-							console.log('con');
-							statistics.commented_questions++;
-						} else {console.log('sin'); statistics.no_commented++;}
-					};
-				})
-			})
-		})
-		.catch(function(error) {next(error)})
-		.finally(function() {next()});		
+
+			return models.Comment.count();
+		}).then(function(comments) {
+			statistics.comments = comments;
+			statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
+
+			return models.Quiz.findAll({
+				include: [{
+					model: models.Comment
+				}]
+			});
+		}).then(function(quizes) {
+			for (index in quizes) {
+				if (quizes[index].Comment.length) {
+					statistics.commented_questions++;
+				} else {
+					statistics.no_commented++;
+				}
+			}
+		}).catch(function(error) {
+			next(error)
+		}).finally(function() {
+			next()
+		});
 	};
 			
 			
