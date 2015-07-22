@@ -1,4 +1,6 @@
 
+<div class="container">
+
 <form class="form-horizontal" method="get" action="/quizes/<%= quiz.id %>/answer">                         	<!- cuando submit, llama a export.answer del quiz_controller.js ->
 	<div class="form-group">
 		<p>Pregunta: <%= quiz.pregunta %> </p>
@@ -30,3 +32,5 @@
 </div>
 
 <p><a href="/quizes/<%= quiz.id %>/comments/new"><button type="button" class="btn btn-primary">Nuevo comentario</button></a></p>
+
+</div>
