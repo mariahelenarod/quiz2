@@ -83,7 +83,7 @@
 			statistics.comments 			= results[1];
 			statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
 			for (index in results[2]) {
-				if (results[2][index].Comment.length) {
+				if (results[2][index].Comment) {
 					statistics.commented_questions++;
 				} else {
 					statistics.no_commented++;
