@@ -78,14 +78,12 @@
 					model: models.Comment
 				}]
 			})
-		]).then(function(results) {
-			// `results` is an array of [quizes, comments, all]
+		]).then(function(results) { 								// `results` is an array of [quizes, comments, all]
 			statistics.quizes 				= results[0];
 			statistics.comments 			= results[1];
 			statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
-
 			for (index in results[2]) {
-				if (results[2][index].Comment) {
+				if (results[2][index].Comment.length) {
 					statistics.commented_questions++;
 				} else {
 					statistics.no_commented++;
