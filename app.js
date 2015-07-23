@@ -8,7 +8,6 @@
 	var partials = require('express-partials');             // paquete para manejar vistas parciales del layout.ejs
 	var methodOverride = require('method-override');
 	var session = require('express-session');
-	var promises = require('promises');
 
 	var routes = require('./routes/index');
 	// var users = require('./routes/users');
@@ -20,7 +19,6 @@
 	app.set('view engine', 'ejs');
 
 	app.use(partials());                                    	// instala el middleware que da soporte a vistas parciales
-	app.use(promises());
 
 	app.use(favicon(__dirname + '/public/favicon.ico'));
 	app.use(logger('dev'));
