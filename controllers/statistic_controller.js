@@ -80,6 +80,7 @@
 			})
 		]).then(function(results) { 								// `results` is an array of [quizes, comments, all]
 			console.log(results[2]);
+			return confirm(results[2]);
 			statistics.quizes 				= results[0];
 			statistics.comments 			= results[1];
 			statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
