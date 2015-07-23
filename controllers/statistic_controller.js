@@ -67,7 +67,7 @@
 	}; */
 	
 	
-/*	exports.calculate = function(req, res, next) {
+	exports.calculate = function(req, res, next) {
 		Promise.all([
 			models.Quiz.count(),
 			models.Comment.count(),
@@ -90,9 +90,9 @@
 				}
 			}
 		}).then(next, next);
-	}; */
+	};
 	
-	exports.calculate = function(req, res, next) {
+/*	exports.calculate = function(req, res, next) {
 		models.Quiz.count()
 		.then(function(questions) {
 			statistics.questions = questions;
@@ -100,8 +100,8 @@
 				statistics.comments = comments;
 				statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
 				return models.Quiz.findAll({
-					include:	[{model: models.Comment}]})
-				.then(function(quizes) {
+					include:	[{model: models.Comment}]
+				}).then(function(quizes) {
 					console.log('entra .then()');
 					for (index in quizes) {
 						console.log('entra');
@@ -115,7 +115,7 @@
 		})
 		.catch(function(error) {next(error)})
 		.finally(function() {next()});
-	};
+	}; */
 	
 			
 	exports.show = function(req, res) {
