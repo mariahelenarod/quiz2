@@ -68,6 +68,7 @@
 	
 	
 	exports.calculate = function(req, res, next) {
+		statistics = 0;
 		Promise.all([
 			models.Quiz.count(),
 			models.Comment.count(),
@@ -77,7 +78,7 @@
 				}]
 			})
 		]).then(function(results) {
-			// `results` is an array of [quizes, comments]
+			// `results` is an array of [quizes, comments, all]
 			statistics.quizes 				= results[0];
 			statistics.comments 			= results[1];
 			statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
