@@ -2,7 +2,7 @@
 	var models = require('../models/models.js');
 	
 	var statistics = {
-		questions: 0,
+		quizes: 0,
 		comments: 0,
 		average_comments: 0,
 		no_commented: 0,
@@ -77,13 +77,13 @@
 				}]
 			})
 		]).then(function(results) {
-			// `results` is an array of [questions, comments, quizes]
-			statistics.questions = results[0];
-			statistics.comments = results[1];
-			statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
+			// `results` is an array of [quizes, comments]
+			statistics.quizes 				= results[0];
+			statistics.comments 			= results[1];
+			statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
 
 			for (index in results[2]) {
-				if (results[2][index].Comment.texto.length) {
+				if (results[2][index].Comment) {
 					statistics.commented_questions++;
 				} else {
 					statistics.no_commented++;
