@@ -68,7 +68,8 @@
 	
 	
 	exports.calculate = function(req, res, next) {
-		statistics = 0;
+		statistics.commented_questions = 0;
+		statistics.no_commented = 0;
 		Promise.all([
 			models.Quiz.count(),
 			models.Comment.count(),
