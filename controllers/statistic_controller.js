@@ -79,12 +79,13 @@
 				}]
 			})
 		]).then(function(results) { 								// `results` is an array of [quizes, comments, all]
+			console.log(results[2]);
 			statistics.quizes 				= results[0];
 			statistics.comments 			= results[1];
 			statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
 			for (index in results[2]) {
 				console.log(results[2][index]);
-				if (results[0][index].Comment.length) {
+				if (results[2][index].Comment) {
 					statistics.commented_quizes++;
 				} else {
 					statistics.no_commented++;
