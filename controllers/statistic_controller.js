@@ -82,8 +82,8 @@
 			statistics.comments = results[1];
 			statistics.average_comments = (statistics.comments / statistics.questions).toFixed(2);
 
-			for (index in results[2]) {
-				if (results[2][index].Comment) {
+			for (index in results[0]) {
+				if (results[0][index].Comment) {
 					statistics.commented_questions++;
 				} else {
 					statistics.no_commented++;
