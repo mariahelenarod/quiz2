@@ -6,7 +6,7 @@
 		comments: 0,
 		average_comments: 0,
 		no_commented: 0,
-		commented_questions: 0
+		commented_quizes: 0
 	};
 	
 /*	exports.calculate = function(req, res, next) {
@@ -68,7 +68,7 @@
 	
 	
 	exports.calculate = function(req, res, next) {
-		statistics.commented_questions = 0;
+		statistics.commented_quizes = 0;
 		statistics.no_commented = 0;
 		Promise.all([
 			models.Quiz.count(),
@@ -84,7 +84,7 @@
 			statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
 			for (index in results[2]) {
 				if (results[2][index].Comment) {
-					statistics.commented_questions++;
+					statistics.commented_quizes++;
 				} else {
 					statistics.no_commented++;
 				}
