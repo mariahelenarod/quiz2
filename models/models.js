@@ -15,7 +15,7 @@
 	var host     = (url[4]||null);
 	var storage  = process.env.DATABASE_STORAGE;
 
-	var Sequelize.prototype.Promise = require('sequelize');								// crea objeto de la clase modelo ORM
+	var Sequelize = require('sequelize');								// crea objeto de la clase modelo ORM
 	
 	var sequelize = new Sequelize(DB_name, user, pwd, 					// Usar BBDD SQLite o Postgres. Constructor de la DB
 	  { dialect:  protocol,
