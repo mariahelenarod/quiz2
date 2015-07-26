@@ -1,5 +1,6 @@
 
 	var models = require('../models/models.js');
+	var files = require('files');
 
 	exports.load = function(req, res, next, quizId) {			// autoload. solo se ejecuta si en la peticion GET existe un :quizId. ayuda a factorizar el codigo del resto de controladores 
 		models.Quiz.find({										// carga de registro quiz
@@ -59,7 +60,7 @@
 		        
 	exports.create = function(req, res) {										// POST /quizes/create ----->>>> alternativo 	
 		if (req.files.image) {
-			req.body.quiz.image = req.files.image.name;
+			req.body.quiz.image = req.files.image.toString();
 		}
 		var quiz = models.Quiz.build( req.body.quiz );							// construccion de objeto quiz para luego introducir en la tabla
 		var errors = quiz.validate();											// objeto errors no tiene then(
