@@ -1,6 +1,5 @@
 
 	var models = require('../models/models.js');
-	var files = require('files');
 
 	exports.load = function(req, res, next, quizId) {			// autoload. solo se ejecuta si en la peticion GET existe un :quizId. ayuda a factorizar el codigo del resto de controladores 
 		models.Quiz.find({										// carga de registro quiz
