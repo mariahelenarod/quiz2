@@ -73,7 +73,7 @@
 		Promise.all([
 			models.Quiz.count(),
 			models.Comment.count(),
-			models.Quiz.findAndCountAll({
+			models.Quiz.findAll({
 				include: [{
 					model: models.Comment
 				}]
