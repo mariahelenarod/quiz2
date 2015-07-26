@@ -42,12 +42,14 @@
 				Quiz.create({
 					pregunta: 'Capital de Italia',
 					respuesta: 'Roma',
-					tema: 'Geografía'
+					tema: 'Geografía',
+					image: ''
 				});
 				Quiz.create({
 					pregunta: 'Capital de Portugal',
 					respuesta: 'Lisboa',
-					tema: 'Geografía'
+					tema: 'Geografía',
+					image: ''
 				})
 				.then(function() {console.log('Base creada')});
 			};
