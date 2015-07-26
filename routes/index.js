@@ -1,11 +1,12 @@
 	
 	var express = require('express');
+	var multer = require('multer');
 	var router = express.Router();
 	var quizController = require('../controllers/quiz_controller');						// importa el controlador quiz_controller.js
 	var commentController = require('../controllers/comment_controller');				// importa el controlador comment_controller.js
 	var sessionController = require('../controllers/session_controller');				// importa el controlador session_controller.js
 	var statisticsController = require('../controllers/statistic_controller');
-	var multer = require('multer');
+	
 	
 	router.get('/', function(req, res) {												/* GET home page. */
 		res.render('index', {title: 'Quiz', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
