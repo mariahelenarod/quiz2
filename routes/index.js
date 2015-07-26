@@ -24,12 +24,12 @@
 
 	router.get('/quizes/new',							sessionController.loginRequired, quizController.new);			// carga el formulario /quizes/new si sessionController.loginRequired()
 	router.post('/quizes/create',						sessionController.loginRequired, 								// dispara controlador create cuando el boton <salvar> del formulario new.js
-														multer({dest: './public/media/'}),
+														// multer({dest: './public/media/'}),
 														quizController.create);		
 
 	router.get('/quizes/:quizId(\\d+)/edit',			sessionController.loginRequired, quizController.edit);			// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller
 	router.put('/quizes/:quizId(\\d+)',					sessionController.loginRequired, 								// dispara controlador update cuando el boton <salvar> del formulario edit.js
-														multer({dest: './public/media/'}),
+														// multer({dest: './public/media/'}),
 														quizController.update);		
 	router.delete('/quizes/:quizId(\\d+)',				sessionController.loginRequired, quizController.destroy);
 	
