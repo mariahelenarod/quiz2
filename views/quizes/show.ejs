@@ -1,6 +1,10 @@
 
 <div class="container">
 
+<%if (quiz.image){%>
+	<img class="img-responsive" src="/media/<%= quiz.image %>">
+<%}%>
+
 <form class="form-horizontal" method="get" action="/quizes/<%= quiz.id %>/answer">                         	<!- cuando submit, llama a export.answer del quiz_controller.js ->
 	<div class="form-group">
 		<p>Pregunta: <%= quiz.pregunta %> </p>

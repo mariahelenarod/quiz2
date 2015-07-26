@@ -58,6 +58,9 @@
 
 		        
 	exports.create = function(req, res) {										// POST /quizes/create ----->>>> alternativo 	
+		if (req.files.image) {
+			req.body.quiz.image = req.files.image.name;
+		}
 		var quiz = models.Quiz.build( req.body.quiz );							// construccion de objeto quiz para luego introducir en la tabla
 		var errors = quiz.validate();											// objeto errors no tiene then(
 		if (errors) {
@@ -67,7 +70,7 @@
 			res.render('quizes/new', {quiz: quiz, errors: errores});
 		} else {
 			quiz 																// save: guarda en DB campos pregunta y respuesta de quiz
-			.save({fields: ["pregunta", "respuesta", "tema"]})
+			.save({fields: ["pregunta", "respuesta", "tema", "image"]})
 			.then(function() {res.redirect('/quizes')});
 		}
 	};
@@ -81,6 +84,9 @@
 		req.quiz.pregunta = req.body.quiz.pregunta;
 		req.quiz.respuesta = req.body.quiz.respuesta;
 		req.quiz.tema = req.body.quiz.tema;
+		if (req.files.image) {
+			req.body.quiz.image = req.files.image.name;
+		}
 		var errors = req.quiz.validate();											
 		if (errors) {
 			var i = 0; 
@@ -89,7 +95,7 @@
 			res.render('quizes/edit', {quiz: req.quiz, errors: errores});
 		} else {
 			req.quiz 															// save: guarda en DB campos pregunta y respuesta de quiz
-			.save({fields: ["pregunta", "respuesta", "tema"]})
+			.save({fields: ["pregunta", "respuesta", "tema", "image"]})
 			.then(function() {res.redirect('/quizes')});
 		};
 	};

@@ -13,6 +13,9 @@
 			tema: {
 				type: DataTypes.STRING,
 				validate: {notEmpty: {msg: "--> Falta Tema"}}
+			},
+			image: {
+				type: DataTypes.STRING
 			}
 		})
 	};

@@ -5,6 +5,7 @@
 	var commentController = require('../controllers/comment_controller');				// importa el controlador comment_controller.js
 	var sessionController = require('../controllers/session_controller');				// importa el controlador session_controller.js
 	var statisticsController = require('../controllers/statistic_controller');
+	var multer = require('multer');
 	
 	router.get('/', function(req, res) {												/* GET home page. */
 		res.render('index', {title: 'Quiz', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
@@ -22,10 +23,14 @@
 	router.get('/quizes/:quizId(\\d+)/answer',			quizController.answer);			// se dispara cuando submit del form question.ejs hacia la ruta /quizes/answer. le pasa el id en la peticion GET req
 
 	router.get('/quizes/new',							sessionController.loginRequired, quizController.new);			// carga el formulario /quizes/new si sessionController.loginRequired()
-	router.post('/quizes/create',						sessionController.loginRequired, quizController.create);		// dispara controlador create cuando el boton <salvar> del formulario new.js
+	router.post('/quizes/create',						sessionController.loginRequired, 								// dispara controlador create cuando el boton <salvar> del formulario new.js
+														multer({dest: './public/media/'}),
+														quizController.create);		
 
 	router.get('/quizes/:quizId(\\d+)/edit',			sessionController.loginRequired, quizController.edit);			// carga formulario quizes/quizes:Id(\\d+)/edit y dispara el controlador edit de quiz_Controller
-	router.put('/quizes/:quizId(\\d+)',					sessionController.loginRequired, quizController.update);		// dispara controlador update cuando el boton <salvar> del formulario edit.js
+	router.put('/quizes/:quizId(\\d+)',					sessionController.loginRequired, 								// dispara controlador update cuando el boton <salvar> del formulario edit.js
+														multer({dest: './public/media/'}),
+														quizController.update);		
 	router.delete('/quizes/:quizId(\\d+)',				sessionController.loginRequired, quizController.destroy);
 	
 	router.get('/quizes/:quizId(\\d+)/comments/new',						commentController.new);											// carga formulario /quizes/:quizId(\\d+)/comments/new y dispara el controlador new de comment_Controller
