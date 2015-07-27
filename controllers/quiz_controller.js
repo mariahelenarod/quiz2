@@ -58,9 +58,9 @@
 
 		        
 	exports.create = function(req, res) {										// POST /quizes/create ----->>>> alternativo 	
-/*		if (req.files.image) {
-			req.body.quiz.image = req.files.image.toString();
-		} */
+		if (req.files.image) {
+			req.body.quiz.image = req.files.image.name;
+		};
 		var quiz = models.Quiz.build( req.body.quiz );							// construccion de objeto quiz para luego introducir en la tabla
 		var errors = quiz.validate();											// objeto errors no tiene then(
 		if (errors) {
@@ -72,7 +72,7 @@
 			quiz 																// save: guarda en DB campos pregunta y respuesta de quiz
 			.save({fields: ["pregunta", "respuesta", "tema", "image"]})
 			.then(function() {res.redirect('/quizes')});
-		}
+		};
 	};
 	
 	exports.edit = function(req, res) {											// carga formulario edit.ejs
@@ -84,9 +84,9 @@
 		req.quiz.pregunta = req.body.quiz.pregunta;
 		req.quiz.respuesta = req.body.quiz.respuesta;
 		req.quiz.tema = req.body.quiz.tema;
-/*		if (req.files.image) {
+		if (req.files.image) {
 			req.body.quiz.image = req.files.image.name;
-		} */
+		};
 		var errors = req.quiz.validate();											
 		if (errors) {
 			var i = 0; 
