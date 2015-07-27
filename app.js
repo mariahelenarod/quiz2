@@ -1,8 +1,5 @@
 	
 	var express = require('express');
-
-	var multer = require('multer');
-
 	var path = require('path');
 	var favicon = require('serve-favicon');
 	var logger = require('morgan');
@@ -32,8 +29,6 @@
 	app.use(methodOverride('_method'));							// para utilizar en edit.ejs y encapsular el post como put
 	app.use(express.static(path.join(__dirname, 'public')));
 
-	app.use(multer({ dest: './public/media/'}));
-	
 	// Helpers dinamicos:
 	app.use(function(req, res, next) {
 		if (!req.session.redir) {								// si no existe lo inicializa
