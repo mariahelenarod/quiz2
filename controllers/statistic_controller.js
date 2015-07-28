@@ -87,8 +87,10 @@
 			for (var i in results[2]) {
 				if (results[2][i].comments.length) {
 					statistics.commented_quizes++;
-					if (!results[2][i].comments.publicado) {
-						statistics.comments_no_published++;
+					for (var x in results[2][i].comments[x]) {
+						if (!results[2][i].comments[x].publicado) {
+							statistics.comments_no_published++;
+						}
 					}
 				} else {
 					statistics.no_commented++;
