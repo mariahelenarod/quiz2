@@ -2,7 +2,8 @@
 
 <form class="form-horizontal" 
 		method="post" 
-		action="/quizes/<%= quiz.id %>?_method=put">							
+		action="/quizes/<%= quiz.id %>?_method=put"
+		enctype="multipart/form-data">							
     							
 
 	<% include _form.ejs %>

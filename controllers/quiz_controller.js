@@ -128,7 +128,7 @@
 			function(quizes) {
 				res.render('temas/showbytema.ejs', { quizes: quizes, errors: []});
 			}
-		).catch(function(error) { next(error)});
+		).catch(function(error) {next(error)});
 	};
 	
 	
