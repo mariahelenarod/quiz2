@@ -6,7 +6,8 @@
 		comments: 0,
 		average_comments: 0,
 		no_commented: 0,
-		commented_quizes: 0
+		commented_quizes: 0,
+		comments_no_published: 0
 	};
 	
 /*	exports.calculate = function(req, res, next) {
@@ -70,6 +71,7 @@
 	exports.calculate = function(req, res, next) {
 		statistics.commented_quizes = 0;
 		statistics.no_commented = 0;
+		statistics.comments_no_published = 0;
 		Promise.all([
 			models.Quiz.count(),
 			models.Comment.count(),
@@ -85,6 +87,9 @@
 			for (var i in results[2]) {
 				if (results[2][i].comments.length) {
 					statistics.commented_quizes++;
+					if (!results[2][i].comments.publicado) {
+						statistics.comments_no_published++;
+					}
 				} else {
 					statistics.no_commented++;
 				}
