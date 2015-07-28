@@ -88,7 +88,7 @@
 				if (results[2][i].comments.length) {
 					statistics.commented_quizes++;
 					for (var x in results[2][i].comments[x]) {
-						if (!results[2][i].comments[x].publicado) {
+						if (results[2][i].comments[x].publicado = false) {
 							statistics.comments_no_published++;
 						}
 					}
