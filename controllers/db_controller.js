@@ -8,6 +8,5 @@
 			}]
 		}).then(function(results) {
 			res.render('db/index', {results: results, errors: []});
-
 		});
 	};	
