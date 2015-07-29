@@ -1,7 +1,7 @@
 <div class="panel panel-default table-responsive">
   <div class="panel-heading">Preguntas</div>
     <table class="table">
-    	<thead>
+      <thead>
         <tr>
           <th>#</th>
           <th>Tema</th>
@@ -12,17 +12,16 @@
         </tr>
       </thead>
       <tbody>
-  		<% var i; for (i=0; i < results.length; i++) {%>
+  		  <% var i; for (i=0; i < results.length; i++) {%>
           	<tr>
-  		    <td><%=results[i].id%></td>
-  		    <td><%=results[i].tema%></td>
-  		    <td><%=results[i].pregunta%></td>
-  		    <td><%=results[i].respuesta%></td>
-  		    <td><%=results[i].createdAt%></td>
-  		    <td><%=results[i].updatedAt%></td>
-  		    </tr>
-  		<%}%>
-  	<tbody>
+      		    <td><%=results[i].id%></td>
+      		    <td><%=results[i].tema%></td>
+      		    <td><%=results[i].pregunta%></td>
+      		    <td><%=results[i].respuesta%></td>
+      		    <td><%=results[i].createdAt%></td>
+      		    <td><%=results[i].updatedAt%></td>
+  		      </tr>
+  		  <%}%>
+  	 <tbody>
     </table>
-
 </div>
