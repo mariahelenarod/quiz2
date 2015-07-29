@@ -47,8 +47,8 @@
 	});
 	
 	router.get('/quizes/statistics',					statisticsController.calculate, statisticsController.show);
-	
-	router.get('/db/index',								dbController.show);
+
+//	router.get('/db/index',								dbController.show);
 
 	module.exports = router;	
 	
