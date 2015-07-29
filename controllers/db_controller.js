@@ -9,7 +9,7 @@
 				}]
 			})
 		]).then(function(results) {
-			res.render('db/index' {results: results, errors: []});
+			res.render('db/index', {results: results, errors: []});
 
 		});
 	};
