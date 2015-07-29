@@ -6,6 +6,7 @@
 	var commentController = require('../controllers/comment_controller');				// importa el controlador comment_controller.js
 	var sessionController = require('../controllers/session_controller');				// importa el controlador session_controller.js
 	var statisticsController = require('../controllers/statistic_controller');
+	var dbController = require('../controllers/db_controller');
 	
 	
 	router.get('/', function(req, res) {												/* GET home page. */
@@ -46,6 +47,8 @@
 	});
 	
 	router.get('/quizes/statistics',					statisticsController.calculate, statisticsController.show);
+	
+	router.get('/db/index',								dbController.show);
 
 	module.exports = router;	
 	

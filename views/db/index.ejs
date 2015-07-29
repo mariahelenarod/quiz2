@@ -1,0 +1,27 @@
+<div class="panel panel-default table-responsive">
+  <div class="panel-heading">Preguntas</div>
+  <table class="table">
+  	<thead>
+      <tr>
+        <th>#</th>
+        <th>Tema</th>
+        <th>Pregunta</th>
+        <th>Respuesta</th>
+        <th>Fecha Creación</th>
+        <th>Fecha Actualización</th>
+      </tr>
+    </thead>
+    <tbody>
+		<% var i; for (i=0; i < quizes.length; i++) {%>
+        	<tr>
+		    <td><%=quizes[i].id%></td>
+		    <td><%=quizes[i].tema%></td>
+		    <td><%=quizes[i].pregunta%></td>
+		    <td><%=quizes[i].respuesta%></td>
+		    <td><%=quizes[i].createdAt%></td>
+		    <td><%=quizes[i].updatedAt%></td>
+		    </tr>
+		<%}%>
+	<tbody>
+  </table>
+</div>
