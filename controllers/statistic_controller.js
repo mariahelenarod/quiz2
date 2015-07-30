@@ -43,7 +43,7 @@
 					};
 				};
 			} else {
-				statistics = 'No hay datos';
+				statistics = {'No hay datos'};
 			};	
 		}).then(next, next);
 	};

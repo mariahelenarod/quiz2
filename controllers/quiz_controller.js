@@ -105,9 +105,6 @@
 			for (var i in req.quiz.comments) {
 				req.quiz.comments[i]. destroy();
 			};
-
-
-
 			res.redirect('/quizes');
 		}).catch(function(error) {next(error)});
 	};
