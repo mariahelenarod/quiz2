@@ -11,6 +11,8 @@
 	};
 	
 	exports.calculate = function(req, res, next) {
+		statistics.quizes = 0;
+		statistics.comments = 0;
 		statistics.no_commented = 0;
 		statistics.commented_quizes = 0;
 		statistics.comments_no_published = 0;
