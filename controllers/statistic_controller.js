@@ -39,7 +39,7 @@
 						statistics.no_commented++;
 					};
 				};
-			} else {statistics.quizes = 'no hay'}; 
+			}; 
 		}).then(next, next);
 	};
 	
