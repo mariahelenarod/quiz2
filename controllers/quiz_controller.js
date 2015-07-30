@@ -102,7 +102,7 @@
 	
 	exports.destroy = function(req, res) {
 		req.quiz.destroy().then(function() {
-			for (var i in req.quiz.comments) {
+			for (var i in req.quiz.comments) { 
 				req.quiz.comments[i].destroy();
 			};
 			res.redirect('/quizes');
