@@ -11,12 +11,12 @@
 	};
 	
 	exports.calculate = function(req, res, next) {
-		statistics.quizes = 0;
+/*		statistics.quizes = 0;
 		statistics.comments = 0;
 		statistics.average_comments = 0;
 		statistics.no_commented = 0;
 		statistics.commented_quizes = 0;
-		statistics.comments_no_published = 0;
+		statistics.comments_no_published = 0; */
 		Promise.all([
 			models.Quiz.count(),
 			models.Comment.count(),
@@ -25,9 +25,9 @@
 					model: models.Comment
 				}]
 			})
-		]).then(function(results) { 	// `results` is an array of [quizes, comments, all]							
-			if (results[0])	{
-				statistics.quizes 				= results[0];
+		]).then(function(results) { 								// `results` is an array of [quizes, comments, all]							
+			if (results[0])	{										// por si no hay resultados, que no dé un infinity en la division
+				statistics.quizes 				= results[0];		
 				statistics.comments 			= results[1];
 				statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
 				for (var i in results[2]) {
