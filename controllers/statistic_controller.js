@@ -42,9 +42,7 @@
 						statistics.no_commented++;
 					};
 				};
-			} else {
-				statistics = {'No hay datos'};
-			};	
+			};
 		}).then(next, next);
 	};
 	
