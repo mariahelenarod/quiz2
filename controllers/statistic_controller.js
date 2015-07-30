@@ -22,22 +22,26 @@
 					model: models.Comment
 				}]
 			})
-		]).then(function(results) { 								// `results` is an array of [quizes, comments, all]
-			statistics.quizes 				= results[0];
-			statistics.comments 			= results[1];
-			statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
-			for (var i in results[2]) {
-				if (results[2][i].comments.length) {
-					statistics.commented_quizes++;
-					for (var x in results[2][i].comments) {
-						if (!results[2][i].comments[x].publicado) {
-							statistics.comments_no_published++;
-						}
-					}
-				} else {
-					statistics.no_commented++;
-				}
-			}
+		]).then(function(results) { 	// `results` is an array of [quizes, comments, all]							
+			if (results[0])	{
+				statistics.quizes 				= results[0];
+				statistics.comments 			= results[1];
+				statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
+				for (var i in results[2]) {
+					if (results[2][i].comments.length) {
+						statistics.commented_quizes++;
+						for (var x in results[2][i].comments) {
+							if (!results[2][i].comments[x].publicado) {
+								statistics.comments_no_published++;
+							};
+						};
+					} else {
+						statistics.no_commented++;
+					};
+				};
+			} else {
+				statistics.quizes = 'No hay datos';
+			};	
 		}).then(next, next);
 	};
 	
