@@ -58,7 +58,7 @@
 	};
 	
 	exports.show = function(req, res) {
-		res.render('quizes/statistics', {statistics: statistics, errors: []});
+		res.render('quizes/statistics', {statistics: calculate.statistics, errors: []});
 	}; 
 	
 	
