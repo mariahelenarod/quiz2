@@ -23,7 +23,7 @@
 				}]
 			})
 		]).then(function(results) { 										// `results` is an array of [quizes, comments, all]							
-			if (results[0].length)	{												// por si no hay resultados, que no dé un infinity en la division
+			if (results[0].count)	{												// por si no hay resultados, que no dé un infinity en la division
 				statistics.quizes 				= results[0];		
 				statistics.comments 			= results[1];
 				statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
