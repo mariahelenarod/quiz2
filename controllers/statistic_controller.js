@@ -11,8 +11,11 @@
 	};
 	
 	exports.calculate = function(req, res, next) {
-		statistics.commented_quizes = 0;
+		statistics.quizes = 0;
+		statistics.comments = 0;
+		statistics.average_comments = 0;
 		statistics.no_commented = 0;
+		statistics.commented_quizes = 0;
 		statistics.comments_no_published = 0;
 		Promise.all([
 			models.Quiz.count(),
@@ -40,7 +43,7 @@
 					};
 				};
 			} else {
-				statistics.quizes = 'No hay datos';
+				statistics = 'No hay datos';
 			};	
 		}).then(next, next);
 	};
