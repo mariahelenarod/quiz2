@@ -14,7 +14,7 @@
 		statistics.no_commented = 0;
 		statistics.commented_quizes = 0;
 		statistics.comments_no_published = 0;
-		Promise.all([												// ejecuta todas las consultas
+		Promise.all([														// ejecuta todas las consultas
 			models.Quiz.count(),
 			models.Comment.count(),
 			models.Quiz.findAll({
@@ -22,16 +22,16 @@
 					model: models.Comment
 				}]
 			})
-		]).then(function(results) { 								// `results` is an array of [quizes, comments, all]							
-			if (results[0])	{										// por si no hay resultados, que no dé un infinity en la division
+		]).then(function(results) { 										// `results` is an array of [quizes, comments, all]							
+			if (results[0])	{												// por si no hay resultados, que no dé un infinity en la division
 				statistics.quizes 				= results[0];		
 				statistics.comments 			= results[1];
 				statistics.average_comments 	= (statistics.comments / statistics.quizes).toFixed(2);
-				for (var i in results[2]) {
-					if (results[2][i].comments.length) {
+				for (var i in results[2]) {									// iteracion sobre la 3a consulta
+					if (results[2][i].comments.length) {					// comprueba si existe comments
 						statistics.commented_quizes++;
-						for (var x in results[2][i].comments) {
-							if (!results[2][i].comments[x].publicado) {
+						for (var x in results[2][i].comments) {				// iteracion sobre todos los comments
+							if (!results[2][i].comments[x].publicado) {		// comprueba si no esta publicado
 								statistics.comments_no_published++;
 							};
 						};
