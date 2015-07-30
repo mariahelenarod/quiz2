@@ -29,7 +29,7 @@
 			for (var i in results[2]) {
 				if (results[2][i].comments.length) {
 					statistics.commented_quizes++;
-					for (var x in results[2][i].comments[x]) {
+					for (var x in results[2][i].comments) {
 						if (!results[2][i].comments[x].publicado) {
 							statistics.comments_no_published++;
 						}
