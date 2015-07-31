@@ -5,7 +5,7 @@
 	<img class="img-responsive" src="/media/<%= quiz.image %>">
 <%}%>
 
-<form class="form-horizontal" method="get" action="/quizes/<%= quiz.id %>/answer">                         	<!- cuando submit, llama a export.answer del quiz_controller.js ->
+<form class="form-horizontal" method="get" action="/quizes/<%= quiz.id %>/answer">                 	<!- cuando submit, llama a export.answer del quiz_controller.js ->
 	<div class="form-group">
 		<p>Pregunta: <%= quiz.pregunta %> </p>
 		<input type="text" name="respuesta" value="Responda aquí"/>						<!- se genera la variable respuesta para enviar en GET req ->
