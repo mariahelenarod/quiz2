@@ -48,6 +48,13 @@
 			.then(function() {res.redirect('/quizes/' + req.params.quizId);})
 			.catch(function(error) {next(error)});
 	};
+
+	exports.unpublish = function(req, res) {													// GET /quizes/:quizId/comments/:commentId/unpublish
+		req.comment.publicado = false;
+		req.comment.save({fields: ["publicado"]})
+			.then(function() {res.redirect('/quizes/' + req.params.quizId);})
+			.catch(function(error) {next(error)});
+	};
 	
 	
 	
