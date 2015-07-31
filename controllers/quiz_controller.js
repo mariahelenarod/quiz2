@@ -122,9 +122,8 @@
 		).catch(function(error) { next(error)});
 	};		
 
-	exports.showbytema = function(req,res){
+	exports.showbytema = function(req, res){
 		tema = req.params.tema;
-		console.log(req.params.tema);
 		models.Quiz.findAll({
 			where: {tema: req.params.tema}
 		}).then(
