@@ -29,12 +29,12 @@
 						<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
 						<button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Publicar</button></a></h5>
 					</td>
-					<%} else {%>
-
+					<%} else if	(session.user && quiz.comments[index].publicado) {%>
+					<td>
 						<h5><%=quiz.comments[index].texto%>
 						<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/unpublish">
 						<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Ocultar</button></a></h5>
-
+					</td>
 				<%}%>
 			</tr>
 			<%}%>
