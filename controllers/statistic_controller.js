@@ -7,6 +7,7 @@
 		average_comments: 0,
 		no_commented: 0,
 		commented_quizes: 0,
+		comments_published: 0,
 		comments_no_published: 0
 	};
 	
@@ -16,6 +17,7 @@
 		statistics.average_comments = 0;
 		statistics.no_commented = 0;
 		statistics.commented_quizes = 0;
+		statistics.comments_published = 0;
 		statistics.comments_no_published = 0;
 		Promise.all([														// ejecuta todas las consultas
 			models.Quiz.count(),
@@ -42,6 +44,7 @@
 						statistics.no_commented++;
 					};
 				};
+				statistics.comments_published = statistics.comments - statistics.comments_no_published;
 			}; 
 		}).then(next, next);
 	};
