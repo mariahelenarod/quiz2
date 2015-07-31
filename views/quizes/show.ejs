@@ -19,7 +19,7 @@
 	<table class="table">
 			<%for(index in quiz.comments){%>
 			<tr>
-				<%if (quiz.comments[index].publicado){%>
+				<%if (quiz.comments[index].length){%>
 					<td>
 						<h5><%=quiz.comments[index].texto%></h5>
 					</td>
