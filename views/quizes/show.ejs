@@ -17,13 +17,13 @@
 	
 <div class="panel panel-default table-responsive">
 	<table class="table">
-			<%for(index in quiz.comments){%>
+			<% for (index in quiz.comments) {%>
 			<tr>
-				<%if (quiz.comments[index].publicado){%>
+				<% if (quiz.comments[index].publicado) {%>
 					<td>
 						<h5><%=quiz.comments[index].texto%></h5>
 					</td>
-				<%}
+				<%}%>
 				<% if (session.user) {%>
 			 		<% if (!quiz.comments[index].publicado) {%>
 						<td>
@@ -37,7 +37,7 @@
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/unpublish">
 							<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Ocultar</button></a></h5>
 						</td>
-					<%}%>
+					
 				<%}%>
 			</tr>
 			<%}%>
