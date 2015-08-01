@@ -39,6 +39,7 @@
 	router.post('/quizes/:quizId(\\d+)/comments',								commentController.create);										// dispara controlador create cuando el boton <enviar> del formulario /comments/new.ejs
 	router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish',   	sessionController.loginRequired, commentController.publish);	//   
 	router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/unpublish',   	sessionController.loginRequired, commentController.unpublish);	//   
+	router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/destroy',   	sessionController.loginRequired, commentController.destroy);	//   
 	
 	router.get('/temas',			 					quizController.showtemas);
 	router.get('/temas/:tema', 							quizController.showbytema);
