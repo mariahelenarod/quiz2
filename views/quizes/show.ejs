@@ -15,31 +15,31 @@
 
 <p><strong>Comentarios:</strong></p>
 	
-<div class="container">
+<div class="container-fluid">
 	
 			<% for (index in quiz.comments) {%>
 			<div class="row">
 				<% if (!session.user && quiz.comments[index].publicado) {%>
 					<div class="col-xs-12 col-sm-6 col-md-8">
-						<h5><%=quiz.comments[index].texto%></h5>
+						<%=quiz.comments[index].texto%>
 					</div>
 				<%}%>
 				<% if (session.user) {
 			 		if (!quiz.comments[index].publicado) {%>
 						<div class="col-xs-6 col-md-4">
-							<h5><%=quiz.comments[index].texto%>
+							<%=quiz.comments[index].texto%>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
 							<button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Publicar</button></a>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
-							<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button></a></h5>
+							<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button></a>
 						</div>
 					<%} else if	(quiz.comments[index].publicado) {%>
 						<div class="col-xs-6 col-md-4">
-							<h5><%=quiz.comments[index].texto%>
+							<%=quiz.comments[index].texto%>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/unpublish">
 							<button class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Ocultar</button></a>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
-							<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button></a></h5>
+							<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button></a>
 						</div>
 					<%}%>
 				<%}%>
