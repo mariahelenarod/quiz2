@@ -15,10 +15,10 @@
 
 <p><strong>Comentarios:</strong></p>
 	
-<div class="container-fluid">
+<div class="panel panel-default table-responsive">
 	
 			<% for (index in quiz.comments) {%>
-			<div class="table">
+			<div class="row">
 				<% if (!session.user && quiz.comments[index].publicado) {%>
 					<td>
 						<%=quiz.comments[index].texto%>
