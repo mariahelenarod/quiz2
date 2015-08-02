@@ -16,40 +16,36 @@
 <p><strong>Comentarios:</strong></p>
 	
 <div class="panel panel-default table-responsive">
-	
+	<table class="table table-hover">
 			<% for (index in quiz.comments) {%>
-			<div class="row">
+			<tr>
 				<% if (!session.user && quiz.comments[index].publicado) {%>
 					<td>
-						<%=quiz.comments[index].texto%>
+						<h5><%=quiz.comments[index].texto%></h5>
 					</td>
 				<%}%>
 				<% if (session.user) {
 			 		if (!quiz.comments[index].publicado) {%>
-						<div class="col-xs-12 col-md-8">
-							<%=quiz.comments[index].texto%>
-						</div>
-						<div class="col-xs-6 col-md-4">
+						<td>
+							<h5><%=quiz.comments[index].texto%>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
 							<button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Publicar</button></a>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
-							<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button></a>
-						</div>
+							<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button></a></h5>
+						</td>
 					<%} else if	(quiz.comments[index].publicado) {%>
-						<div class="col-xs-12 col-md-8">
-							<%=quiz.comments[index].texto%>
-						</div>
-						<div class="col-xs-6 col-md-4">
+						<td>
+							<h5><%=quiz.comments[index].texto%>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/unpublish">
 							<button class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Ocultar</button></a>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
-							<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button></a>
-						</div>
+							<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button></a></h5>
+						</td>
 					<%}%>
 				<%}%>
-			</div>
+			</tr>
 			<%}%>
-	
+	</table>
 </div>
 
 <p><a href="/quizes/<%= quiz.id %>/comments/new"><button type="button" class="btn btn-primary">Nuevo comentario</button></a></p>
