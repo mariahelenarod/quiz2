@@ -16,7 +16,7 @@
 <p><strong>Comentarios:</strong></p>
 	
 <div class="panel panel-default table-responsive">
-	<table class="table">
+	
 			<% for (index in quiz.comments) {%>
 			<div class="row">
 				<% if (!session.user && quiz.comments[index].publicado) {%>
@@ -45,7 +45,7 @@
 				<%}%>
 			</div>
 			<%}%>
-	</table>
+	
 </div>
 
 <p><a href="/quizes/<%= quiz.id %>/comments/new"><button type="button" class="btn btn-primary">Nuevo comentario</button></a></p>
