@@ -27,7 +27,7 @@
 				<% if (session.user) {
 			 		if (!quiz.comments[index].publicado) {%>
 						<td>
-							<textarea style="width: 80%"><%=quiz.comments[index].texto%></textarea>
+							<textarea style="max-width: 90%"><%=quiz.comments[index].texto%></textarea>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
 							<button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
