@@ -21,7 +21,7 @@
 			<tr>
 				<% if (!session.user && quiz.comments[index].publicado) {%>
 					<td>
-						<textarea width="500px"><%=quiz.comments[index].texto%></textarea>
+						<textarea class="form-control"><%=quiz.comments[index].texto%></textarea>
 					</td>
 				<%}%>
 				<% if (session.user) {
