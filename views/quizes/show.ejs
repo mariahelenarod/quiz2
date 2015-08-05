@@ -13,6 +13,7 @@
 	</div>
 </form>
 
+<div class="container" style="width: 960px">
 <p><strong>Comentarios:</strong></p>
 	
 <div class="panel panel-default table-responsive">
@@ -27,7 +28,7 @@
 				<% if (session.user) {
 			 		if (!quiz.comments[index].publicado) {%>
 						<td>
-							<textarea style="width: 85%"><%=quiz.comments[index].texto%></textarea>
+							<textarea style="width: 75%"><%=quiz.comments[index].texto%></textarea>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
 							<button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
@@ -35,7 +36,7 @@
 						</td>
 					<%} else if	(quiz.comments[index].publicado) {%>
 						<td>
-							<textarea style="width: 85%"><%=quiz.comments[index].texto%></textarea>
+							<textarea style="width: 75%"><%=quiz.comments[index].texto%></textarea>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/unpublish">
 							<button class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a>
 							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
@@ -49,5 +50,6 @@
 </div>
 
 <p><a href="/quizes/<%= quiz.id %>/comments/new"><button type="button" class="btn btn-primary">Nuevo comentario</button></a></p>
+</div>
 
 </div>
