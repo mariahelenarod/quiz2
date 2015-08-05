@@ -1,6 +1,8 @@
-Añadir comentario: <p>
+<h4>Añadir comentario:</h4>
 
-<form method="post" action="/quizes/<%=quizid%>/comments/" >      
-	<textarea class="form-control" id="comment" name="comment[texto]" value=""></textarea> <br>
-	<button type="submit" class="btn btn-success">Enviar</button>
-</form> 
+<div class="container" style="max-width: 660px">
+	<form method="post" action="/quizes/<%=quizid%>/comments/" >      
+		<textarea class="form-control" id="comment" name="comment[texto]" rows="6" value=""></textarea> <br>
+		<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Enviar</button>
+	</form> 
+</div>
