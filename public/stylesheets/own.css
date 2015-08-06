@@ -1,5 +1,6 @@
 
-	body img {
-		width: auto;
-		height: auto;
+	#main {
+		background-image: url(/images/fondo01.jpg);
+		background-repeat: no-repeat;
+    	background-size: cover;
 	}

@@ -15,12 +15,11 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/holder.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	
 </head>
 
-<body style="image: url(/images/fondo01.jpg)">
+<body>
 
-<div class="container">
+<div class="container" name="main">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -62,23 +61,17 @@
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
-	
 		
 	<div class="row">
-
-				<% if (errors.length) { %>
-					<span id='ErrorMsgs'>
-						Corregir errores:<br/>
-						<% for (var i in errors) { %>
-						<span> <%= errors[i].message %> </span><br/>
-						<% } %>
-					</span>
+		<% if (errors.length) { %>
+			<span id='ErrorMsgs'>Corregir errores:<br/>
+				<% for (var i in errors) { %>
+					<span> <%= errors[i].message %> </span><br/>
 				<% } %>
-				<%- body %>	<!- directiva ejs. body: convenio para cargar las vistas que se rendericen desde cualquier enrutador: index.js, quiz_controller.js ->
-
+			</span>
+		<% } %>
+		<%- body %>	<!- directiva ejs. body: convenio para cargar las vistas que se rendericen desde cualquier enrutador: index.js, quiz_controller.js ->
 	</div>
-	
-
 
 	<!-- Modal ================================================================================== -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -101,12 +94,9 @@
 		</div>
 	</div>
 
-	
 	<div class="footer">
 		<p class="text-center">&copy; 2015 Company, Inc. &middot; <a href="https://github.com/jotamontoyo/quiz2">GitHub</a> &middot; <a href="#">Terms</a></p>
 	</div>
-
-	
 
 </div>
 
