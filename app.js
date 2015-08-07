@@ -31,9 +31,9 @@
 
 	// Helpers dinamicos:
 	app.use(function(req, res, next) {
-/*		if (!req.session.redir) {								// si no existe lo inicializa
+		if (!req.session.redir) {								// si no existe lo inicializa
 			req.session.redir = '/';
-		} */
+		}
 		if (!req.path.match(/\/login|\/logout/)) { 				// guardar path en session.redir para despues de logout volver a la misma vista del login
 			req.session.redir = req.path;						// req.path es le path de donde se hizo el login
 		}
@@ -43,7 +43,7 @@
 	
 	app.use(function(req, res, next) {
 		if (req.session.user) {
-			if (Date.now() - req.session.user.lastRequestTime > 2*60*1000) {
+			if (Date.now() - req.session.user.lastRequestTime > 4*60*1000) {
 				delete req.session.user;
 			} else {
 				req.session.user.lastRequestTime = Date.now();
