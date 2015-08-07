@@ -13,7 +13,7 @@
 		res.render('index', {title: 'Quiz', errors: []});								// cuando renderice la vista index.ejs le pasa el objeto title: 'Quiz'
 	});
 
-	router.param('quizId', 								quizController.load);			// autoload de comandos. peticiones GET con SQL :quizId
+	router.param('quizId', 								quizController.load);			// autoload de comandos. peticiones GET con SQL
 	router.param('commentId',							commentController.load);
 																						// Definición de rutas de sesion
 	router.get('/login',  								sessionController.new);     	// formulario login
