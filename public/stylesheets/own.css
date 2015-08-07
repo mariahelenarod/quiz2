@@ -1,8 +1,7 @@
 
-	#front-main {
-/*		background: url(images/fondo01.jpg);
+	#main {
+		background: url(/images/fondo01.jpg);
 		background-repeat: no-repeat;
-    	background-size: cover; */
-    	width: 960px;
+    	background-size: cover; 
 
 	}
