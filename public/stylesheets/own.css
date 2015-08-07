@@ -1,6 +1,5 @@
 
 	#main {
-		background: url(/images/fondo01.jpg) no-repeat top left;
-    	background-attachment: fixed;
+		background: url(/images/fondo01.jpg) no-repeat fixed center;
 	}
 
