@@ -1,6 +1,6 @@
 
 	#main {
-		background-image: url(/images/fondo01.jpg) no-repeat;
-    	background-size: cover;
+		background: url(/images/fondo01.jpg) no-repeat;
+    	background-size: contain;
 	}
 
