@@ -5,7 +5,7 @@
 	<img class="img-responsive" src="/media/<%= quiz.image %>">
 <%}%>
 
-<form class="form-horizontal" method="get" action="/quizes/<%= quiz.id %>/answer">                 	<!- cuando submit, llama a export.answer del quiz_controller.js ->
+<form class="form-horizontal" method="get" action="/quizes/<%= quiz.id %>/answer">         	<!- cuando submit, llama a export.answer del quiz_controller.js ->
 	<div class="form-group">
 		<h3>Pregunta: <%= quiz.pregunta %> </h3>
 		<input type="text" name="respuesta" placeholder="Responda aquí"/>		<!- se genera la variable respuesta para enviar en GET req ->
@@ -14,43 +14,42 @@
 </form>
 
 <div class="container" style="max-width: 960px">
-<p><strong>Comentarios:</strong></p>
-	
-<div class="panel panel-default table-responsive">
-	<table class="table table-hover">
-			<% for (index in quiz.comments) {%>
-			<tr>
-				<% if (!session.user && quiz.comments[index].publicado) {%>
-					<td>
-						<textarea class="form-control"><%=quiz.comments[index].texto%></textarea>
-					</td>
-				<%}%>
-				<% if (session.user) {
-			 		if (!quiz.comments[index].publicado) {%>
+	<p><strong>Comentarios:</strong></p>
+	<div class="panel panel-default table-responsive">
+		<table class="table table-hover"  id="comments-table>
+				<% for (index in quiz.comments) {%>
+				<tr>
+					<% if (!session.user && quiz.comments[index].publicado) {%>
 						<td>
-							<textarea style="width: 75%"><%=quiz.comments[index].texto%></textarea>
-							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
-							<button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>
-							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
-							<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a>
-						</td>
-					<%} else if	(quiz.comments[index].publicado) {%>
-						<td>
-							<textarea style="width: 75%"><%=quiz.comments[index].texto%></textarea>
-							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/unpublish">
-							<button class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a>
-							<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
-							<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a>
+							<textarea class="form-control"><%=quiz.comments[index].texto%></textarea>
 						</td>
 					<%}%>
+					<% if (session.user) {
+				 		if (!quiz.comments[index].publicado) {%>
+							<td>
+								<textarea style="width: 75%"><%=quiz.comments[index].texto%></textarea>
+								<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
+								<button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>
+								<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
+								<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a>
+							</td>
+						<%} else if	(quiz.comments[index].publicado) {%>
+							<td>
+								<textarea style="width: 75%"><%=quiz.comments[index].texto%></textarea>
+								<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/unpublish">
+								<button class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a>
+								<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
+								<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a>
+							</td>
+						<%}%>
+					<%}%>
+				</tr>
 				<%}%>
-			</tr>
-			<%}%>
-	</table>
-</div>
+		</table>
+	</div>
 
-<p><a href="/quizes/<%= quiz.id %>/comments/new"><button type="button" class="btn btn-primary">
-	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo comentario</button></a></p>
-</div>
+	<p><a href="/quizes/<%= quiz.id %>/comments/new"><button type="button" class="btn btn-primary">
+		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo comentario</button></a>
+	</p>
 
 </div>
