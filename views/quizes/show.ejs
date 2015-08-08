@@ -15,8 +15,8 @@
 
 <div class="container" style="max-width: 960px">
 	<p><strong>Comentarios:</strong></p>
-	<div class="panel panel-default table-responsive">
-		<table class="table table-hover"  id="comments-table>
+	<div class="panel panel-default table-responsive" id="comments-table>
+		<table class="table table-hover">
 				<% for (index in quiz.comments) {%>
 				<tr>
 					<% if (!session.user && quiz.comments[index].publicado) {%>
