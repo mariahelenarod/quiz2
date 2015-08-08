@@ -3,3 +3,12 @@
 		background: url(/images/fondo01.jpg) no-repeat fixed center;
 	}
 
+	#front-panel {
+		background-color: rgba(238, 238, 238, 0.6);
+
+		-moz-box-shadow:10px 10px 5px #EEEEEE;
+		-webkit-box-shadow:10px 10px 5px #EEEEEE;
+		box-shadow:10px 10px 5px #EEEEEE;
+		
+	}
+
