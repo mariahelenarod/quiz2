@@ -35,7 +35,7 @@
 				for (var i in results[2]) {									// iteracion sobre la 3a consulta
 					if (results[2][i].comments.length) {					// comprueba si existe comments
 						statistics.commented_quizes++;
-						for (var x in results[2][i].comments) {				// iteracion sobre todos los comments
+						for (var x in results[2][i].comments) {				// iteracion sobre todos los comments de un quiz
 							if (!results[2][i].comments[x].publicado) {		// comprueba si no esta publicado
 								statistics.comments_no_published++;
 							};
@@ -52,51 +52,3 @@
 	exports.show = function(req, res) {
 		res.render('quizes/statistics', {statistics: statistics, errors: []});
 	}; 
-	
-	
-/*
-    El número de preguntas
-    El número de comentarios totales
-    El número medio de comentarios por pregunta
-    El número de preguntas sin comentarios
-    El número de preguntas con comentarios
-*/
-
-
-/* exports.show = function(req,res){
-  models.Quiz.count().then(function (_quizes){
-
-  models.Comment.count().then(function (_comments){
-
-  var _midComments= _comments / _quizes;
-
-  models.Quiz.findAll({
-    include:[{model: models.Comment}]
-    }).then(function (quizes){
-
-        var _quesWithCom = 0;
-        for (i in quizes){
-        if (quizes[i].Comments.length)
-        _quesWithCom++;
-    }
-
-    var _quesWithoutCom = _quizes - _quesWithCom;
-
-    res.render('quizes/stats', {quizes: _quizes,
-                                      comments: _comments,
-                                      midComments: _midComments,
-                                      quesWithCom: _quesWithCom,
-                                      quesWithoutCom: _quesWithoutCom,
-                                      errors: []
-    });
-
-  })
-
-  })
-});
-}; */
-
-	
-	
-	
-	
