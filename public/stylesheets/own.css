@@ -18,7 +18,6 @@
 		border-top: none;
 	}
 
-	#login {
-		max-width: 220px;
-		margin: auto;
+	#login, #new-edit {
+		max-width: 420px;
 	}
