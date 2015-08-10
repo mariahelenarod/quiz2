@@ -23,6 +23,9 @@
 						<% if (!session.user && quiz.comments[index].publicado) {%>
 							<td id="comment-table">
 								<textarea class="form-control" id="comment-panel"><%=quiz.comments[index].texto%></textarea>
+								
+							</td>
+							<td>
 								<img class="img-responsive" id="comment-img" src="/images/jota.jpg">
 							</td>
 						<%}%>
