@@ -18,6 +18,6 @@
 		border-top: none;
 	}
 
-	#login, #new-edit, #quiz-index {
+	#login, #new-edit {
 		max-width: 960px;
 	}
