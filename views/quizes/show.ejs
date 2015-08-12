@@ -18,7 +18,7 @@
 		<p><strong>Comentarios:</strong></p>
 		<div class="panel panel-default table-responsive">
 			<table class="table table-hover">
-					<% for (index in quiz.comments) {%>
+				<% for (index in quiz.comments) {%>
 					<tr>
 						<% if (!session.user && quiz.comments[index].publicado) {%>
 							<td id="comment-table">
@@ -57,7 +57,7 @@
 							<%}%>
 						<%}%>
 					</tr>
-					<%}%>
+				<%}%>
 			</table>
 		</div>
 
