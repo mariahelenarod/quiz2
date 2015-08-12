@@ -30,17 +30,29 @@
 								<td>
 									<textarea style="width: 75%"><%=quiz.comments[index].texto%></textarea>
 									<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/publish">
-									<button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button></a>
+										<button class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="Publicar">
+											<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+										</button>
+									</a>
 									<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
-									<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a>
+										<button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Eliminar">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+									</a>
 								</td>
 							<%} else if	(quiz.comments[index].publicado) {%>
 								<td>
 									<textarea style="width: 75%"><%=quiz.comments[index].texto%></textarea>
 									<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/unpublish">
-									<button class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></a>
+										<button class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ocultar">
+											<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+										</button>
+									</a>
 									<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.comments[index].id%>/destroy">
-									<button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></a>
+										<button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Eliminar">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+									</a>
 								</td>
 							<%}%>
 						<%}%>
