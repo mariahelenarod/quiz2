@@ -43,13 +43,13 @@
 					pregunta: 'Capital de Italia',
 					respuesta: 'Roma',
 					tema: 'Geografía',
-					image: 'jota.jpg'
+					image: './images/jota.jpg'
 				});
 				Quiz.create({
 					pregunta: 'Capital de Portugal',
 					respuesta: 'Lisboa',
 					tema: 'Geografía',
-					image: 'jota.jpg'
+					image: './images/jota.jpg'
 				})
 				.then(function() {console.log('Base creada')});
 			};
